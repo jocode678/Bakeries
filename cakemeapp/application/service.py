@@ -1,5 +1,12 @@
 from application.domain.bakeries import Bakeries
 from application.domain.address import Address
+from application.domain.dietary import Dietary
+from application.domain.menu_items import MenuItems
+from application.domain.customer_member import CustomerMember
+from application.domain.administrator import Administrator
+from application.domain.bakery_owner import BakeryOwner
+from application.domain.reviews import Reviews
+
 from application import db
 
 

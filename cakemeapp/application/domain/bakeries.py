@@ -26,3 +26,6 @@ class Bakeries(db.Model):
     social_media = db.Column(db.String(50), nullable=True)
     dietary_ref = db.Column(db.Integer, db.ForeignKey('dietary.id'), nullable=True)
     image = db.Column(db.String(), nullable=True)
+    customer_member_bakeries = db.relationship('CustomerMember', backref='customer_member_bakeries')
+    bakery_owner_bakeries = db.relationship('BakeryOwner', backref='bakery_owner_bakeries')
+    reviews_bakeries = db.relationship('Reviews', backref='reviews_bakeries')
