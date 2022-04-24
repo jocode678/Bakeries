@@ -30,16 +30,14 @@ def get_customer_by_id(customer_id):
     else:
         return None
 
-print(get_customer_by_id(1))
 
-
-def get_team_by_id(team_id):
-    if team_id < 100:
-        return Address.query.get(team_id)
-    else:
-        return None
-
-
-def add_new_hero(hero):
-    db.session.add(hero)
-    db.session.commit()
+# def get_team_by_id(team_id):
+#     if team_id < 100:
+#         return Address.query.get(team_id)
+#     else:
+#         return None
+#
+#
+# def add_new_hero(hero):
+#     db.session.add(hero)
+#     db.session.commit()
