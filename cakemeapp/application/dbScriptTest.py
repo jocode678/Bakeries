@@ -62,8 +62,6 @@ print(address.id, address.house_number, address.postcode)
 # review = session.query(Reviews).filter_by(id=1).first()
 # print(review.id, review.review, review.stars)
 
-#hero = session.query(Bakeries).filter_by(alias='Iron Man').first()
-#print(hero.name, hero.superPower, hero.alias, hero.teamID)
 
 #team = session.query(Address).filter_by(id=4).first()
 #print(team.affiliation, team.objective)

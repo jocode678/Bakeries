@@ -17,11 +17,20 @@ def get_all_bakeries():
     return Bakeries.query.all()
 
 
-def get_bakery_by_id(hero_id):
-    if hero_id > 0:
-        return Bakeries.query.get(hero_id)
+def get_bakery_by_id(bakery_id):
+    if bakery_id > 0:
+        return Bakeries.query.get(bakery_id)
     else:
         return None
+
+
+def get_customer_by_id(customer_id):
+    if customer_id > 0:
+        return CustomerMember.query.get(customer_id)
+    else:
+        return None
+
+print(get_customer_by_id(1))
 
 
 def get_team_by_id(team_id):
