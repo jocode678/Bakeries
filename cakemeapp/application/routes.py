@@ -1,7 +1,7 @@
 from flask import render_template, request, jsonify
 
 from application import app, service
-#from application.forms.heroForm import HeroForm
+from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm
 from application.domain.bakeries import Bakeries
 from application.domain.address import Address
 from application.domain.dietary import Dietary
@@ -11,10 +11,12 @@ from application.domain.administrator import Administrator
 from application.domain.bakery_owner import BakeryOwner
 from application.domain.reviews import Reviews
 
+
 @app.route('/home')
 def home_page():
     error = ""
     return render_template('home.html', message=error)
+
 
 @app.route('/aboutus')
 def about_us():
@@ -57,26 +59,56 @@ def show_customer_profile(customer_id):
     return render_template('my_profile.html', customer=customer, message=error)
 
 
-# @app.route('/new_hero', methods=['GET','POST'])
-# def add_new_hero():
+# FORMS
+@app.route('/new_bakery', methods=['GET','POST'])
+def add_new_bakery():
+    error = ""
+    form = BakeryOwnerForm()
+
+    if request.method == 'POST':
+        form = BakeryOwnerForm(request.form)
+        print(form.shop_name.data)
+        shop_name = form.shop_name.data
+        opening_times = form.opening_times.data
+        phone = form.phone.data
+        website = form.website.data
+        social_media = form.social_media.data
+
+        if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
+            error = "Please supply both bakery name and opening times"
+        else:
+            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media)
+            service.add_new_bakery(bakery)
+            bakeries = service.get_all_bakeries()
+            # change this below to the individual bakery page
+            return render_template('bakery.html', bakeries=bakeries, message=error)
+    return render_template('new_bakery_form.html', form=form, message=error)
+
+# @app.route('/new_customer_member', methods=['GET', 'POST'])
+# def add_new_customer_member():
 #     error = ""
-#     form = HeroForm()
+#     form = CustomerSignUpForm()
 #
 #     if request.method == 'POST':
-#         form = HeroForm(request.form)
-#         print(form.name.data)
-#         name = form.name.data
-#         alias = form.alias.data
-#         superPower = form.superPower.data
-#         teamID = form.teamID.data
+#         form = CustomerSignUpForm(request.form)
+#         print(form.username.data)
+#         shop_name = form.username.data
+#         opening_times = form.user_password.data
+#         phone = form.phone.data
+#         website = form.website.data
+#         social_media = form.social_media.data
 #
-#
-#         if len(name) == 0 or len(alias) == 0:
-#             error = "Please supply both name and alias"
+#         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(
+#                     social_media) == 0:
+#             error = "Please supply both bakery name and opening times"
 #         else:
-#             hero = Bakeries(name=name, alias=alias, superPower = superPower, teamID = teamID)
-#             service.add_new_hero(hero)
-#             heroes = service.get_all_bakeries()
-#             return render_template('bakery.html', heroes=heroes, message=error)
+#             bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website,
+#                                   social_media=social_media)
+#             service.add_new_bakery(bakery)
+#             bakeries = service.get_all_bakeries()
+#             # change this below to the individual bakery page
+#             return render_template('bakery.html', bakeries=bakeries, message=error)
 #
-#     return render_template('new_hero_form.html', form=form, message=error)
+#         return render_template('new_bakery_form.html', form=form, message=error)
+
+
