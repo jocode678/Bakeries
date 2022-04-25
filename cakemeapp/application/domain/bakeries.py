@@ -1,6 +1,7 @@
 from application import db
 from dataclasses import dataclass
 
+
 # the annotation below will help to turn the Python object into a JSON object
 @dataclass
 class Bakeries(db.Model):
@@ -14,8 +15,6 @@ class Bakeries(db.Model):
     social_media: str
     dietary_ref: int
     image: str
-
-
 
     id = db.Column(db.Integer, primary_key=True)
     shop_name = db.Column(db.String(30), nullable=False)

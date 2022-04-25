@@ -37,7 +37,6 @@ def get_customer_by_id(customer_id):
 #     else:
 #         return None
 #
-#
-# def add_new_hero(hero):
-#     db.session.add(hero)
-#     db.session.commit()
+def add_new_bakery(bakery):
+    db.session.add(bakery)
+    db.session.commit()
