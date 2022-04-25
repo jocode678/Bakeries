@@ -30,7 +30,6 @@ def get_customer_by_id(customer_id):
     else:
         return None
 
-
 # def get_team_by_id(team_id):
 #     if team_id < 100:
 #         return Address.query.get(team_id)

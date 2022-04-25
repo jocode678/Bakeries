@@ -36,35 +36,25 @@ def show_bakeries():
         error = "There are no bakeries to display"
     return render_template('bakery.html', bakeries=bakeries, message=error)
 
-# This is working in JSON but not what we want. Jo and Emma 24.4.22
-# @app.route('/bakeryjson/<int:bakery_id>', methods=['GET'])
-# def show_bakery_json(bakery_id):
-#     error = ""
-#     bakery = service.get_bakery_by_id(bakery_id)
-#     # for the sake of debugging
-#     # print(bakery.shop_name, bakery.address_ref)
-#     if not bakery:
-#         return jsonify("There is no bakery with ID: " + str(bakery_id))
-#     return jsonify(bakery)
+# This is working now 25.4.22
+@app.route('/bakery/<int:bakery_id>', methods=['GET'])
+def show_bakery(bakery_id):
+    error = ""
+    bakery = service.get_bakery_by_id(bakery_id)
+    if not bakery:
+        error = "There is no bakery with ID: " + str(bakery_id)
+    return render_template('individual_bakery.html', bakery=bakery, message=error)
 
-# This is not working - Jo and Emma 24.4.22
-# @app.route('/bakery/<int:bakery_id>', methods=['GET'])
-# def show_bakery(bakery_id):
-#     error = ""
-#     bakeries = service.get_bakery_by_id(bakery_id)
-#     if not bakeries:
-#         error = "There is no bakery with ID: " + str(bakery_id)
-#     return render_template('individual_bakery.html', bakeries=bakeries, message=error)
 
-#
-# This is not working - Jo and Emma 24.4.22
-# @app.route('/myprofile/<int:customer_id>', methods=['GET'])
-# def show_customer_profile(customer_id):
-#     error = ""
-#     customer = service.get_customer_by_id(customer_id)
-#     # if len(customer) == 0:
-#     #     error = "There is no customer to display"
-#     return render_template('my_profile.html', customer=customer, message=error)
+
+# This is working now 25.4.22
+@app.route('/myprofile/<int:customer_id>', methods=['GET'])
+def show_customer_profile(customer_id):
+    error = ""
+    customer = service.get_customer_by_id(customer_id)
+    if not customer:
+        error = "There is no customer with ID: " + str(customer_id)
+    return render_template('my_profile.html', customer=customer, message=error)
 
 
 # @app.route('/new_hero', methods=['GET','POST'])
