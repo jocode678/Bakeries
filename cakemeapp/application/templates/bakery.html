@@ -13,10 +13,13 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" href="static/styles.css" />
+    <script type="module" src="static/index.js"></script>
     <title>Bakery Page</title>
   </head>
   <body>
+    <div id="map"></div>
     <div>
       <table class="table table-striped">
         <th>
@@ -28,13 +31,12 @@
           </tr>
         </th>
         <tbody>
-          <p>Insert map of bakeries in this page</p>
           {% for bakery in bakeries %}
           <tr>
             <th scope="row">{{bakery.id}}</th>
-            <td>{{bakery.shop_name}}</td>
-            <td>{{bakery.address_ref}}</td>
-            <td>{{bakery.opening_times}}</td>
+            <td>{{ bakery.shop_name }}</td>
+            <td>{{ bakery.address_ref }}</td>
+            <td>{{ bakery.opening_times }}</td>
           </tr>
           {% endfor %}
         </tbody>
@@ -42,5 +44,9 @@
       <br />
       {{ message }}
     </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnLUC4dz0N4gBIWxRmB3Xwds7drOxKc-8&callback=initMap&v=weekly"
+      defer
+    ></script>
   </body>
 </html>

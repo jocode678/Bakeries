@@ -1,8 +1,10 @@
-body{
+body {
   width: 90%;
-  margin: auto;
   font-family: "Helvetica Neue";
   background-color: lightblue;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -15,13 +17,18 @@ p {
   font-family: verdana;
   font-size: 24px;
 }
-footer{
+footer {
   font-size: 1.2em;
   text-align: center;
   color: gray;
 }
 
-.error_message{
+#map {
+  height: 550px;
+  width: 100%;
+}
+
+.error_message {
   font-size: 1.3em;
   color: red;
 }
