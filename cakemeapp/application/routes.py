@@ -78,7 +78,8 @@ def add_new_bakery():
         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
             error = "Please fill in all fields with a *"
         else:
-            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media, dietary_ref=dietary_ref)
+            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media)
+            # If add dietary_ref=dietary_ref into above statement the form won't submit due to integer ID/str category.
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
             # change this below to the individual bakery page

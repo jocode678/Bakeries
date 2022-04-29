@@ -2,10 +2,8 @@ from flask_wtf import FlaskForm
 
 from application import app, service
 
-from wtforms import StringField, SubmitField, IntegerField, validators, Form, BooleanField, PasswordField, TextAreaField, RadioField
+from wtforms import StringField, SubmitField, SelectField, IntegerField, validators, Form, BooleanField, PasswordField, TextAreaField, RadioField
 from wtforms.validators import InputRequired, Length
-# from wtforms import QuerySelectField
-# from wtforms import SelectField
 
 
 # Form for owners to add their bakery
