@@ -7,7 +7,6 @@ from wtforms.validators import InputRequired, Length
 # from wtforms import QuerySelectField
 # from wtforms import SelectField
 
-
 # Form for owners to add their bakery
 # making them mandatory?
 # how do we solve the foreign-key reference issue with forms?
@@ -19,9 +18,20 @@ class BakeryOwnerForm(FlaskForm):
     website = StringField('Website Link *', [validators.Length(min=1)])
     social_media = StringField("Social Media")
     # dietary_ref = -> do a drop-down/options, populated from dietary_ref table
-    dietary_ref = RadioField('Which dietary requirements do you cater for',
-                             choices=service.get_all_dietary_reqs()
-                             )
+    # INSTEAD of dietary_ref: 
+    gluten_free_coeliac = RadioField('Gluten Free and Coeliac', choices=[("Yes"), ("No")])
+    dairy_lactose_free = RadioField('Dairy Free and Lactose Free', choices=[("Yes"), ("No")])
+    vegetarian = RadioField('Vegetarian', choices=[("Yes"), ("No")])
+    vegan = RadioField('Vegan', choices=[("Yes"), ("No")])
+    peanut_free = RadioField('Peanut Free', choices=[("Yes"), ("No")])
+    soy_free = RadioField('Soy Free', choices=[("Yes"), ("No")])
+    eggs_free = RadioField('Eggs Free', choices=[("Yes"), ("No")])
+    fish_shellfish_free = RadioField('Fish and Shellfish Free', choices=[("Yes"), ("No")])
+    kosher = RadioField('Kosher', choices=[("Yes"), ("No")])
+    halal = RadioField('Halal', choices=[("Yes"), ("No")]) 
+    # dietary_ref = RadioField('Which dietary requirements do you cater for',
+                            #  choices=service.get_all_dietary_reqs()
+                            #  )
     # image =  -> how do you upload?
     submit = SubmitField('Add Bakery')
 

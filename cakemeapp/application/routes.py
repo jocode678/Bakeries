@@ -73,12 +73,21 @@ def add_new_bakery():
         phone = form.phone.data
         website = form.website.data
         social_media = form.social_media.data
-        dietary_ref = form.dietary_ref.data
+        gluten_free_coeliac = form.gluten_free_coeliac.data
+        dairy_lactose_free = form.dairy_lactose_free.data
+        vegetarian = form.vegetarian.data
+        vegan = form.vegan.data
+        peanut_free = form.peanut_free.data
+        soy_free = form.soy_free.data
+        eggs_free = form.eggs_free.data
+        fish_shellfish_free = form.fish_shellfish_free.data
+        kosher = form.kosher.data
+        halal = form.halal.data
 
         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
             error = "Please fill in all fields with a *"
         else:
-            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media, dietary_ref=dietary_ref)
+            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten_free_coeliac=gluten_free_coeliac, dairy_lactose_free=dairy_lactose_free, vegetarian=vegetarian, vegan=vegan, peanut_free=peanut_free, soy_free=soy_free, eggs_free=eggs_free, fish_shellfish_free=fish_shellfish_free, kosher=kosher, halal=halal)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
             # change this below to the individual bakery page
