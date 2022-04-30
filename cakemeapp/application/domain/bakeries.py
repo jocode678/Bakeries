@@ -13,13 +13,14 @@ class Bakeries(db.Model):
     phone: str
     website: str
     social_media: str
-    gluten_free_and_coeliac: str
-    dairy_free_and_lactose_free: str
+    gluten: str
+    dairy_lactose: str
     vegetarian: str
     vegan: str
-    peanut_free: str
-    soy_free: str
-    eggs_free: str
+    peanut: str
+    soy: str
+    eggs: str
+    fish_shell: str
     kosher: str
     halal: str
     image: str
@@ -31,13 +32,14 @@ class Bakeries(db.Model):
     phone = db.Column(db.String(15), nullable=True)
     website = db.Column(db.String(50), nullable=True)
     social_media = db.Column(db.String(50), nullable=True)
-    gluten_free_and_coeliac= db.Column(db.String(5), nullable=True)
-    dairy_free_and_lactose_free= db.Column(db.String(5), nullable=True)
+    gluten= db.Column(db.String(5), nullable=True)
+    dairy_lactose= db.Column(db.String(5), nullable=True)
     vegetarian= db.Column(db.String(5), nullable=True)
     vegan= db.Column(db.String(5), nullable=True)
-    peanut_free= db.Column(db.String(5), nullable=True)
-    soy_free= db.Column(db.String(5), nullable=True)
-    eggs_free= db.Column(db.String(5), nullable=True)
+    peanut= db.Column(db.String(5), nullable=True)
+    soy= db.Column(db.String(5), nullable=True)
+    eggs= db.Column(db.String(5), nullable=True)
+    fish_shell = db.Column(db.String(5), nullable=True)
     kosher= db.Column(db.String(5), nullable=True)
     halal= db.Column(db.String(5), nullable=True)
     image = db.Column(db.String(), nullable=True)
