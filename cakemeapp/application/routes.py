@@ -79,11 +79,12 @@ def add_new_bakery():
         phone = form.phone.data
         website = form.website.data
         social_media = form.social_media.data
+        dietary_ref = form.dietary_ref.data
 
         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
-            error = "Please supply both bakery name and opening times"
+            error = "Please fill in all fields with a *"
         else:
-            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media)
+            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media, dietary_ref=dietary_ref)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
             # change this below to the individual bakery page
@@ -98,23 +99,21 @@ def add_new_bakery():
 #     if request.method == 'POST':
 #         form = CustomerSignUpForm(request.form)
 #         print(form.username.data)
-#         shop_name = form.username.data
-#         opening_times = form.user_password.data
-#         phone = form.phone.data
-#         website = form.website.data
-#         social_media = form.social_media.data
+#         username = form.username.data
+#         user_password = form.user_password.data
+#         first_name = form.first_name.data
+#         last_name = form.last_name.data
+#         email = form.email.data
+#         postcode = form.postcode.data
 #
-#         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(
-#                     social_media) == 0:
-#             error = "Please supply both bakery name and opening times"
+#         if len(username) == 0 or len(user_password) == 0 or len(first_name) == 0 or len(last_name) == 0 or len(
+#                     email) == 0 or len(postcode) == 0:
+#             error = "Please supply all information"
 #         else:
-#             bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website,
-#                                   social_media=social_media)
-#             service.add_new_bakery(bakery)
-#             bakeries = service.get_all_bakeries()
-#             # change this below to the individual bakery page
-#             return render_template('bakery.html', bakeries=bakeries, message=error)
+#             customer_member = CustomerMember(username=username, user_password=user_password, first_name=first_name, last_name=last_name, email=email, postcode=postcode)
+#             service.add_new_customer(customer_member)
+#             return render_template('aboutus.html', customer_member=customer_member, message=error)
 #
-#         return render_template('new_bakery_form.html', form=form, message=error)
+#         return render_template('new_customer_form.html', form=form, message=error)
 
 

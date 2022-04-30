@@ -32,6 +32,15 @@ def get_bakery(bakery_id):
         #return Bakeries.query.get(bakery_id)
     #else:
         #return None
+def get_all_dietary_reqs():
+    return Dietary.query.with_entities(Dietary.category).all()
+
+
+def get_bakery_by_id(bakery_id):
+    if bakery_id > 0:
+        return Bakeries.query.get(bakery_id)
+    else:
+        return None
 
 
 def get_customer_by_id(customer_id):
@@ -52,3 +61,10 @@ print(get_address_by_id(1))
 def add_new_bakery(bakery):
     db.session.add(bakery)
     db.session.commit()
+
+
+def add_new_customer(customer_member):
+    db.session.add(customer_member)
+    db.session.commit()
+
+
