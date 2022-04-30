@@ -9,5 +9,6 @@ class Address(db.Model):
     town = db.Column(db.String(20), nullable=True)
     postcode = db.Column(db.String(10), nullable=False)
     country = db.Column(db.String(20), nullable=True)
-    bakeries_address = db.relationship('Bakeries', backref='bakeries_address')
+    bakery_id = db.Column(db.Integer, db.ForeignKey('bakery.id'), nullable=True)
+    bakeries = db.relationship("Bakeries", back_populates="address")
 

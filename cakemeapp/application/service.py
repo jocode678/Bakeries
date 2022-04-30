@@ -1,3 +1,4 @@
+from application.domain import bakeries
 from application.domain.bakeries import Bakeries
 from application.domain.address import Address
 from application.domain.dietary import Dietary
@@ -17,11 +18,20 @@ def get_all_bakeries():
     return Bakeries.query.all()
 
 
-def get_bakery_by_id(bakery_id):
-    if bakery_id > 0:
-        return Bakeries.query.get(bakery_id)
-    else:
-        return None
+def get_bakery(bakery_id):
+    bakery = Bakeries.query.all()
+    print(bakery)
+    if bakery_id == Bakeries.id:
+        bakery = bakeries.query.filter_by(id=bakery.id).first()
+        print(bakery)
+        return bakery
+
+
+#def get_bakery_by_id(bakery_id):
+    #if bakery_id > 0:
+        #return Bakeries.query.get(bakery_id)
+    #else:
+        #return None
 
 
 def get_customer_by_id(customer_id):
@@ -30,12 +40,15 @@ def get_customer_by_id(customer_id):
     else:
         return None
 
-# def get_team_by_id(team_id):
-#     if team_id < 100:
-#         return Address.query.get(team_id)
-#     else:
-#         return None
-#
+def get_address_by_id(bakery_id):
+    if bakery_id is True:
+        return bakeries.query.get(Bakeries.bakery_address)
+        #return Address.query.get(bakery_id)
+    else:
+        return None
+
+print(get_address_by_id(1))
+
 def add_new_bakery(bakery):
     db.session.add(bakery)
     db.session.commit()

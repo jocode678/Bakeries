@@ -1,5 +1,5 @@
 from flask import render_template, request, jsonify
-
+from pymysql import connect
 from application import app, service
 from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm
 from application.domain.bakeries import Bakeries
@@ -42,7 +42,13 @@ def show_bakeries():
 @app.route('/bakery/<int:bakery_id>', methods=['GET'])
 def show_bakery(bakery_id):
     error = ""
-    bakery = service.get_bakery_by_id(bakery_id)
+    #bakery = service.get_bakery_by_id(bakery_id)
+    #bakeries_address = bakery.address_ref
+    #sql = "SELECT \ bakery.address_ref AS bakery_address\ FROM bakeries \ INNER JOIN bakeries ON bakery.address_ref = address.address_id"
+    #address_id = sql
+    bakery = service.get_bakery(bakery_id)
+    #address = service.get_address_by_id(bakery_id)
+    
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
     return render_template('individual_bakery.html', bakery=bakery, message=error)
