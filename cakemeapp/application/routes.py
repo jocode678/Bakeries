@@ -89,12 +89,11 @@ def add_new_bakery():
             address_new = Address(street=address)
             service.add_new_address(address_new)
             new_address_id = service.get_address_id_4()
-            # Link address back to bakery to populate address_id
             bakery = Bakeries(shop_name=shop_name, address_ref=new_address_id, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten, dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
             # change this below to the individual bakery page. Or just a landing page saying "thanks for adding your bakery, your bakery ID is x"?
-            return render_template('bakery.html', bakeries=bakeries, message=error)
+            return render_template('individual_bakery.html', bakery=bakery, address_new=address_new, message=error)
     return render_template('new_bakery_form.html', form=form, message=error)
 
 # @app.route('/new_customer_member', methods=['GET', 'POST'])
