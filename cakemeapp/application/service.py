@@ -34,8 +34,6 @@ def get_bakery_by_id(bakery_id):
         return None
 
 
-print(get_bakery_by_id(1))
-
 
 def get_customer_by_id(customer_id):
     if customer_id > 0:
