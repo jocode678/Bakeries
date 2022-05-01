@@ -12,6 +12,7 @@ from application.domain.bakery_owner import BakeryOwner
 from application.domain.reviews import Reviews
 
 
+
 @app.route('/home')
 def home_page():
     error = ""
@@ -38,7 +39,7 @@ def show_bakeries():
         error = "There are no bakeries to display"
     return render_template('bakery.html', bakeries=bakeries, message=error)
 
-# This is working now 25.4.22
+
 @app.route('/bakery/<int:bakery_id>', methods=['GET'])
 def show_bakery(bakery_id):
     error = ""
@@ -48,8 +49,6 @@ def show_bakery(bakery_id):
     return render_template('individual_bakery.html', bakery=bakery, message=error)
 
 
-
-# This is working now 25.4.22
 @app.route('/myprofile/<int:customer_id>', methods=['GET'])
 def show_customer_profile(customer_id):
     error = ""
@@ -67,8 +66,8 @@ def add_new_bakery():
 
     if request.method == 'POST':
         form = BakeryOwnerForm(request.form)
-        print(form.shop_name.data)
         shop_name = form.shop_name.data
+        address = form.address.data
         opening_times = form.opening_times.data
         phone = form.phone.data
         website = form.website.data
@@ -87,10 +86,14 @@ def add_new_bakery():
         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
             error = "Please fill in all fields with a *"
         else:
-            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten, dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
+            address_new = Address(street=address)
+            service.add_new_address(address_new)
+            new_address_id = service.get_address_id_4()
+            # Link address back to bakery to populate address_id
+            bakery = Bakeries(shop_name=shop_name, address_ref=new_address_id, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten, dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
-            # change this below to the individual bakery page
+            # change this below to the individual bakery page. Or just a landing page saying "thanks for adding your bakery, your bakery ID is x"?
             return render_template('bakery.html', bakeries=bakeries, message=error)
     return render_template('new_bakery_form.html', form=form, message=error)
 
