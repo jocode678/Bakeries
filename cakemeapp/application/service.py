@@ -34,6 +34,9 @@ def get_bakery_by_id(bakery_id):
         return None
 
 
+print(get_bakery_by_id(1))
+
+
 def get_customer_by_id(customer_id):
     if customer_id > 0:
         return CustomerMember.query.get(customer_id)
@@ -88,10 +91,19 @@ def add_new_address(address_new):
 
 # print(get_address_id_3('asd'))
 
-
+# This returns the latest added address.
 def get_address_id_4():
     var = Address.query.all()
     return str(var[-1].id)
+
+
+# Using this to get the address into the individual bakery page
+def get_address_for_bakery(bakery_id):
+    if bakery_id > 0:
+        address_id = bakery_id
+        return Address.query.get(address_id)
+    else:
+        return None
 
 
 def add_new_customer(customer_member):

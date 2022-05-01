@@ -44,9 +44,10 @@ def show_bakeries():
 def show_bakery(bakery_id):
     error = ""
     bakery = service.get_bakery_by_id(bakery_id)
+    address = service.get_address_for_bakery(bakery_id)
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
-    return render_template('individual_bakery.html', bakery=bakery, message=error)
+    return render_template('individual_bakery.html', bakery=bakery, address=address, message=error)
 
 
 @app.route('/myprofile/<int:customer_id>', methods=['GET'])
@@ -92,8 +93,8 @@ def add_new_bakery():
             bakery = Bakeries(shop_name=shop_name, address_ref=new_address_id, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten, dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
-            # change this below to the individual bakery page. Or just a landing page saying "thanks for adding your bakery, your bakery ID is x"?
-            return render_template('individual_bakery.html', bakery=bakery, address_new=address_new, message=error)
+            # I changed this below to navigate to the newly created individual bakery page
+            return render_template('individual_bakery.html', bakery=bakery, address=address_new, message=error)
     return render_template('new_bakery_form.html', form=form, message=error)
 
 # @app.route('/new_customer_member', methods=['GET', 'POST'])
