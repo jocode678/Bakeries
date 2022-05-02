@@ -1,27 +1,104 @@
-body{
-  width: 90%;
-  margin: auto;
+body, html {
+  width: 100%;
+  height: 100%;
   font-family: "Helvetica Neue";
-  background-color: lightblue;
 }
 
-h1 {
+.bg {
+  background: burlywood;
+  background-image: url(images/bakery-front-image.jpeg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
+} */
+
+h1, h2, p {
   font-family: verdana;
   color: white;
   text-align: center;
 }
 
+.footer {
+  height: 8%;
+  width: 100%;
+  background-color: beige;
+  color: black;
+  text-align: center;
+}
+
+.footer-text {
+  color: black;
+}
+
+.footer-copy {
+  color: black;
+}
+
+.about-us-image, .contact-us-front-image {
+  background-image: url(images/AboutUsImage.jpeg);
+  width: 300px;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 4px solid transparent;
+  border-image: url(border.png) 30 round;
+  border-color: white;
+}
+
+
+
 p {
   font-family: verdana;
   font-size: 24px;
 }
-footer{
+footer {
   font-size: 1.2em;
   text-align: center;
   color: gray;
 }
 
-.error_message{
+.error_message {
   font-size: 1.3em;
   color: red;
 }
+
+#searchbar {
+  margin-left: 15%;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+input[type=text] {
+  width: 30%;
+  -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 70%;
+}
+
+#list {
+  font-size: 1.5em;
+  margin-left: 90px;
+}
+
+.bakeries {
+  display: list-item;
+} 
+
