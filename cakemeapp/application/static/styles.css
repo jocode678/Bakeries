@@ -45,6 +45,17 @@ h1, h2, p {
   color: black;
 }
 
+.about-us, .bakeries-display-box, .contact-us-section {
+  width: 90%;
+  height: 90%;
+  background-color: beige;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
 .about-us-image, .contact-us-front-image {
   background-image: url(images/AboutUsImage.jpeg);
   width: 300px;
@@ -59,8 +70,6 @@ h1, h2, p {
   border-image: url(border.png) 30 round;
   border-color: white;
 }
-
-
 
 p {
   font-family: verdana;
@@ -102,3 +111,24 @@ input[type=text]:focus {
   display: list-item;
 } 
 
+.home-tagline-box {
+  width: 90%;
+  height: 90%;
+  background-color: beige;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.home-tagline-text {
+  text-align: center;
+  color: black;
+}
+
+.social-icons {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}

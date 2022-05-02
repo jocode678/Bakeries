@@ -54,7 +54,7 @@
           </div>
         </div>
       </nav>
-      <!--Search Box-->
+      <!--Search Box NOT WORKING YET-->
       <div>
         <div>
           <div class="form-container">
@@ -75,7 +75,8 @@
 
     <!-- Bakeries Main Container Area-->
     <!--Bakery seach cards show here-->
-    <!-- <div>
+    <div class="bakeries-main-container">
+      <div class="bakeries-display-box">
           <table class="table table-striped">
             <th>
               <tr>
@@ -99,33 +100,7 @@
           </table>
           <br />
           {{ message }}
-        </div> -->
-
-    <!-- <div>
-      <table class="table table-striped">
-        <th>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Bakery</th>
-            <th scope="col">Address</th>
-            <th scope="col">Opening Times</th>
-          </tr>
-        </th>
-        <tbody>
-          <p>Insert map of bakeries in this page</p>
-          {% for bakery in bakeries %}
-          <tr>
-            <th scope="row">{{bakery.id}}</th>
-            <td>{{bakery.shop_name}}</td>
-            <td>{{bakery.address_ref}}</td>
-            <td>{{bakery.opening_times}}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <br />
-      {{ message }}
-    </div> -->
+        </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
