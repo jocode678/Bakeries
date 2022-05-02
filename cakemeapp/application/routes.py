@@ -68,7 +68,11 @@ def add_new_bakery():
     if request.method == 'POST':
         form = BakeryOwnerForm(request.form)
         shop_name = form.shop_name.data
-        address = form.address.data
+        house_number = form.house_number.data
+        street = form.street.data
+        town = form.town.data
+        postcode = form.postcode.data
+        country = form.country.data
         opening_times = form.opening_times.data
         phone = form.phone.data
         website = form.website.data
@@ -87,7 +91,7 @@ def add_new_bakery():
         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
             error = "Please fill in all fields with a *"
         else:
-            address_new = Address(street=address)
+            address_new = Address(house_number=house_number, street=street, town=town, postcode=postcode, country=country)
             service.add_new_address(address_new)
             new_address_id = service.get_address_id_4()
             bakery = Bakeries(shop_name=shop_name, address_ref=new_address_id, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten, dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
