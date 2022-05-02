@@ -29,7 +29,7 @@ CREATE TABLE dietary(
 id INT PRIMARY KEY AUTO_INCREMENT,
 category VARCHAR(30) NOT NULL);
 
-INSERT INTO dietary (category) VALUES ("gluten free and coeliac"), ("diary free and lactose free"), ("vegetarian"), ("vegan"), ("peanut free"), ("soy free"), ("eggs free"), ("fish and shellfish free"), ("kosher"), ("halal");
+INSERT INTO dietary (category) VALUES ("gluten free and coeliac"), ("dairy free and lactose free"), ("vegetarian"), ("vegan"), ("peanut free"), ("soy free"), ("eggs free"), ("fish and shellfish free"), ("kosher"), ("halal");
 
 CREATE TABLE bakeries(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -39,22 +39,30 @@ opening_times VARCHAR(100),
 phone VARCHAR(15),
 website VARCHAR(50),
 social_media VARCHAR(50),
-dietary_ref INTEGER,
 image LONGBLOB,
-FOREIGN KEY (address_ref) REFERENCES address(id),
-FOREIGN KEY (dietary_ref) REFERENCES dietary(id));
+gluten VARCHAR(5),
+dairy_lactose VARCHAR(5),
+vegetarian VARCHAR(5),
+vegan VARCHAR(5),
+peanut VARCHAR(5),
+soy VARCHAR(5),
+eggs VARCHAR(5),
+fish_shell VARCHAR(5),
+kosher VARCHAR(5),
+halal VARCHAR(5),
+FOREIGN KEY (address_ref) REFERENCES address(id));
 
-INSERT INTO bakeries (shop_name, address_ref, opening_times, website) VALUES
-("Maison Bertaux", 1, "Mon-Sun: 9:30am-6pm", "http://www.maisonbertaux.com/"),
-("Bageriet", 2, "Sun/Mon: closed, Tue-Fri: 10am-5:30pm, Sat: 10am-6pm", "https://www.bageriet.co.uk/"),
-("Cutter & Squidge", 3, "Mon-Sun: 11am-7pm", "https://cutterandsquidge.com/"),
-("Aux Pains de Papy", 4, "Mon-Fri: 7am-4pm, Sat: 8am-12pm, Sun: closed", "https://www.auxpainsdepapy.co.uk/"),
-("Crumbs & Doilies", 5, "Mon-Sat: 11am-7pm, Sun: 12-6pm", "https://www.crumbsanddoilies.co.uk/"),
-("Miel Bakery", 6, "Mon-Sun: 8am-6pm", "http://oldpostofficebakery.co.uk/"),
-("The Old Post Office Bakery", 7, "Mon-Sat: 7am-4pm, Sun: 7am-2pm", "http://oldpostofficebakery.co.uk/"),
-("E5 Bakehouse", 8, "Mon-Fri: 7:30am-4:30pm, Sat/Sun: 8am-5pm", "https://e5bakehouse.com/"),
-("Fabrique Bakery Hoxton", 9, "Mon-Fri: 8am-5pm, Sat/Sun: 9am-6pm", "https://fabrique.co.uk/"),
-("Granier Bakery Cafe", 10, "Mon-Sun: 6am-9pm", "https://pansgranier.com/");
+INSERT INTO bakeries (image, shop_name, address_ref, opening_times, website, gluten, dairy_lactose, vegetarian, vegan, peanut, soy, eggs, fish_shell, kosher, halal) VALUES
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\maisonbertaux.jpg", "Maison Bertaux", 1, "Mon-Sun: 9:30am-6pm", "http://www.maisonbertaux.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\bageriet.jpg", "Bageriet", 2, "Sun/Mon: closed, Tue-Fri: 10am-5:30pm, Sat: 10am-6pm", "https://www.bageriet.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\cutterandsquidge.PNG", "Cutter & Squidge", 3, "Mon-Sun: 11am-7pm", "https://cutterandsquidge.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\auxpainsdepapy.PNG", "Aux Pains de Papy", 4, "Mon-Fri: 7am-4pm, Sat: 8am-12pm, Sun: closed", "https://www.auxpainsdepapy.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\crumbsanddoilies.jpg", "Crumbs & Doilies", 5, "Mon-Sat: 11am-7pm, Sun: 12-6pm", "https://www.crumbsanddoilies.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\mielbakery.jpg", "Miel Bakery", 6, "Mon-Sun: 8am-6pm", "http://oldpostofficebakery.co.uk/,", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\theoldpostofficebakery.jpg", "The Old Post Office Bakery", 7, "Mon-Sat: 7am-4pm, Sun: 7am-2pm", "http://oldpostofficebakery.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\e5bakehouse.jpg", "E5 Bakehouse", 8, "Mon-Fri: 7:30am-4:30pm, Sat/Sun: 8am-5pm", "https://e5bakehouse.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\fabriquebakeryhoxton.jpg", "Fabrique Bakery Hoxton", 9, "Mon-Fri: 8am-5pm, Sat/Sun: 9am-6pm", "https://fabrique.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("C:\Users\HNI06\PycharmProjects\Final_Project\Bakeries\cakemeapp\application\static\images\bakeries\granierbakerycafe.jpg", "Granier Bakery Cafe", 10, "Mon-Sun: 6am-9pm", "https://pansgranier.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No");
 
 CREATE TABLE menu_items(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -108,18 +116,28 @@ INSERT INTO bakery_owner (username, user_password, bakery_ref) VALUES
 
 CREATE TABLE reviews(
 id INT PRIMARY KEY AUTO_INCREMENT,
-customer_ref INTEGER NOT NULL,
 review VARCHAR(300),
 stars INTEGER NOT NULL,
 bakery_ref INTEGER NOT NULL,
 image LONGBLOB, 
 FOREIGN KEY (bakery_ref) REFERENCES bakeries(id));
 
-INSERT INTO reviews (customer_ref, review, stars, bakery_ref) VALUES
-(1, "Quite tasty pastries!", 5, 7);
+INSERT INTO reviews (review, stars, bakery_ref) VALUES
+("Quite tasty pastries!", 5, 7);
 
 CREATE USER "admin1"@"localhost" IDENTIFIED BY "password1";
-GRANT ALL ON getintotech_library.* TO "admin1"@"localhost";
+GRANT ALL ON cakeme.* TO "admin1"@"localhost";
 
 -- CREATE USER "baker1"@"localhost" IDENTIFIED BY "password1";
--- GRANT SELECT, INSERT, UPDATE ON getintotech_library.bakeries TO "baker1"@"localhost";
+-- GRANT SELECT, INSERT, UPDATE ON cakeme.bakeries TO "baker1"@"localhost";
+
+-- CREATE SCHEMA permissions;
+-- SELECT schema();
+
+-- CREATE FUNCTION dbo.fn_cakemeaccess (@id AS sysname)
+-- RETURNS TABLE
+-- WITH SCHEMABINDING
+-- AS
+-- RETURN SELECT 1 AS AccessRight
+-- 	WHERE @id = USER_NAME() OR USER_NAME() = "baker1"
+-- ;

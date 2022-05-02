@@ -2,11 +2,8 @@ from flask_wtf import FlaskForm
 
 from application import app, service
 
-from wtforms import StringField, SubmitField, IntegerField, validators, Form, BooleanField, PasswordField, TextAreaField, RadioField
+from wtforms import StringField, SubmitField, SelectField, IntegerField, validators, Form, BooleanField, PasswordField, TextAreaField, RadioField
 from wtforms.validators import InputRequired, Length
-# from wtforms import QuerySelectField
-# from wtforms import SelectField
-
 
 # Form for owners to add their bakery
 # making them mandatory?
@@ -19,9 +16,20 @@ class BakeryOwnerForm(FlaskForm):
     website = StringField('Website Link *', [validators.Length(min=1)])
     social_media = StringField("Social Media")
     # dietary_ref = -> do a drop-down/options, populated from dietary_ref table
-    dietary_ref = RadioField('Which dietary requirements do you cater for',
-                             choices=service.get_all_dietary_reqs()
-                             )
+    # INSTEAD of dietary_ref: 
+    gluten = RadioField('Gluten Free and Coeliac', choices=[("Yes"), ("No")], default="No")
+    dairy_lactose = RadioField('Dairy Free and Lactose Free', choices=[("Yes"), ("No")], default="No")
+    vegetarian = RadioField('Vegetarian', choices=[("Yes"), ("No")], default="No")
+    vegan = RadioField('Vegan', choices=[("Yes"), ("No")], default="No")
+    peanut = RadioField('Peanut Free', choices=[("Yes"), ("No")], default="No")
+    soy = RadioField('Soy Free', choices=[("Yes"), ("No")], default="No")
+    eggs = RadioField('Eggs Free', choices=[("Yes"), ("No")], default="No")
+    fish_shell = RadioField('Fish and Shellfish Free', choices=[("Yes"), ("No")], default="No")
+    kosher = RadioField('Kosher', choices=[("Yes"), ("No")], default="No")
+    halal = RadioField('Halal', choices=[("Yes"), ("No")], default="No")
+    # dietary_ref = RadioField('Which dietary requirements do you cater for',
+                            #  choices=service.get_all_dietary_reqs()
+                            #  )
     # image =  -> how do you upload?
     submit = SubmitField('Add Bakery')
 
