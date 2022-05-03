@@ -21,7 +21,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <h1>Cake Me!</h1>
+                <!-- <h1>Cake Me!</h1> -->
                 <!-- <a class="navbar-brand" href="#">Navbar</a> -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,8 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
-                            <img src=""> <!--Logo-->
+                        <!--Logo-->
+                            <!-- <img class="homepage-logo" src="/cakemeapp/application/static/images/bakery-logo.jpeg" alt="bakery-logo">  -->
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
                         </li>
@@ -56,10 +57,14 @@
     <section clas="home-container">
         <div class="home-main-section">
             <div class="home-tagline-box">
-                <p>Logo sits here</p>
-                <p class="home-tagline-text">Welcome to Cake Me. The first stop for all cake lovers to locate the nearest and (yummiest) bakeries in your area! Enjoy!
-                </p>
-                <p>Cake it till you make it!</p>
+                <!-- Logo -->
+                <div class="homepage-logo-section">
+                    <img class="homepage-logo" src="/cakemeapp/application/static/images/bakery-logo.png" alt="bakery-logo">
+                </div>
+                <div class="home-tagline-text">
+                    <p>Welcome to Cake Me!</p>                       
+                    <p>The first stop for all cake lovers to locate the nearest and (yummiest) bakeries in your area! Enjoy!</p>
+                </div>
             </div>
         </div>
     </section>
@@ -78,10 +83,8 @@
     -->
     <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
     <footer class="footer fixed-bottom" >
-    <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!
-    </p>
-    <p class="footer-copy">&copy; 2022</p>
+    <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!</p>
+    <p class="footer-copy"><span class="emphasised">&copy;2022</p></span>
     </footer>
 </body>
-
 </html>
