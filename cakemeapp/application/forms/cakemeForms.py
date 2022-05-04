@@ -5,12 +5,17 @@ from application import app, service
 from wtforms import StringField, SubmitField, SelectField, IntegerField, validators, Form, BooleanField, PasswordField, TextAreaField, RadioField
 from wtforms.validators import InputRequired, Length
 
+
 # Form for owners to add their bakery
 # making them mandatory?
 # how do we solve the foreign-key reference issue with forms?
 class BakeryOwnerForm(FlaskForm):
     shop_name = StringField('Bakery Name *')
-    address = StringField('Address')
+    house_number = StringField('Street Number')
+    street = StringField('Street Name')
+    town = StringField('Town')
+    postcode = StringField('Postcode')
+    country = StringField('Country')
     opening_times = StringField('Opening Times *')
     phone = StringField('Phone Number *')
     website = StringField('Website Link *', [validators.Length(min=1)])
