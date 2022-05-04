@@ -97,12 +97,19 @@ def get_address_id_4():
 
 # Using this to get the address into the individual bakery page
 def get_address_for_bakery(bakery_id):
-    if bakery_id > 0:
-        address_id = bakery_id
+    if Bakeries.address_ref == bakery_id:
+        # look up address id in the bakery table, don't just assume it will be the same id number
+        # address_id = bakery_id
         return Address.query.get(address_id)
     else:
         return None
 
+# def xx(bakery_id):
+#     all_bakeries = Bakeries.query.all()
+#     for loop to cycle through until address_ref mathes bakery_id
+
+
+print(get_address_for_bakery(1))
 
 def add_new_customer(customer_member):
     db.session.add(customer_member)
