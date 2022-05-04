@@ -43,18 +43,8 @@ def show_bakeries():
 @app.route('/bakery/<int:bakery_id>', methods=['GET'])
 def show_bakery(bakery_id):
     error = ""
-<<<<<<< HEAD
-    #bakery = service.get_bakery_by_id(bakery_id)
-    #bakeries_address = bakery.address_ref
-    #sql = "SELECT \ bakery.address_ref AS bakery_address\ FROM bakeries \ INNER JOIN bakeries ON bakery.address_ref = address.address_id"
-    #address_id = sql
-    bakery = service.get_bakery(bakery_id)
-    #address = service.get_address_by_id(bakery_id)
-    
-=======
     bakery = service.get_bakery_by_id(bakery_id)
     address = service.get_address_for_bakery(bakery_id)
->>>>>>> 69d6977afe8d8ecfa059ed9c8dcb26e52bec4d0c
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
     return render_template('individual_bakery.html', bakery=bakery, address=address, message=error)

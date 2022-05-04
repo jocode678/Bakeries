@@ -76,6 +76,9 @@
     <!-- Bakeries Main Container Area-->
     <!--Bakery seach cards show here-->
     <div class="bakeries-main-container">
+      <div class="individual-bakery">
+             <div id="map"></div>
+        </div>
       <div class="bakeries-display-box">
           <table class="table table-striped">
             <th>
@@ -92,11 +95,7 @@
               <tr>
                 <th scope="row">{{bakery.id}}</th>
                 <td>{{bakery.shop_name}}</td>
-                <td>{{ bakery.address.house_number }} {{ bakery.address.street }}, {{
-              bakery.address.town }},
-              <span id="postcode">{{ bakery.address.postcode }}</span></td>
-                <td>{{bakery.opening_times}}</td>
-              </tr>
+                </tr>
               {% endfor %}
             </tbody>
           </table>
