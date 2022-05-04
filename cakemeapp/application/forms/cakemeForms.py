@@ -34,6 +34,13 @@ class BakeryOwnerForm(FlaskForm):
     submit = SubmitField('Add Bakery')
 
 
+class AddReviews(FlaskForm):
+    stars = RadioField('Number of stars', choices=[(5), (4), (3), (2), (1)])
+    review = StringField('Please tell us more:')
+    bakery_ref = StringField('Please enter the bakery ID')
+    submit = SubmitField('Add Review')
+
+
 class CustomerSignUpForm(FlaskForm):
     username = StringField('Choose a username')
     user_password = StringField('Choose a password')

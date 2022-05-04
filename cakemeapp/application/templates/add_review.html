@@ -54,37 +54,39 @@
         </nav>
     </div>
     <!--./End of container-->
-    <!--Individual Bakery Section-->
-    <section clas="individual-bakery-container">
-        <div class="individual-bakery">
-            <p>Individual bakery information and map to go here</p>
+
+
+    <!-- Adding review Section starts -->
+<div class='container-sm' style="width:50%">
+    <form method='POST' action=''>
+        <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
+        {{ form.csrf_token }}
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.stars.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.stars(class_="form-control", size =32)}}</div>
+            </div>
         </div>
-    </section>
-    <div>
-        <p>the name of the bakery is {{bakery.shop_name}}</p>
-        <br>
-        <p>the opening times are{{bakery.opening_times}}</p>
-        <br>
-        <p>the address is {{address.street}}</p>
-        <br>
-        {{ message }}
-
-    <!--./Reviews section-->
-        <p>Click this link to add a review for this bakery</p>
-
-        <p>Here are the reviews: </p>
-        <br>
-<!--        Add if statement here to only print if rev.bakery_ref is = to the bakery_ref on the page-->
-        {% for rev in review %}
-        <p>{{rev.stars}} {{rev.review}}</p>
-        {% endfor %}
-
-<!--        Need to  return all reviews not just one -->
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.review.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.review(class_="form-control", size =32)}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.bakery_ref.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.bakery_ref(class_="form-control", size =32) }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.submit(class_="btn btn-primary mb-3") }}</div>
+            </div>
+        </div>
 
 
-
-
-    <!--./Individual Bakery Section Ends-->
+    <!--./Adding reviews Section ends-->
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -1,7 +1,9 @@
 from application import db
+from dataclasses import dataclass
 
 # ORM - Object relational mapping - mapping class to a table
 # DTO - data transfer object
+@dataclass
 class Address(db.Model):
     id: int
     house_number: str

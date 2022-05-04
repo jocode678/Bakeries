@@ -21,6 +21,10 @@ def get_all_bakeries():
     return Bakeries.query.all()
 
 
+def get_all_addresses():
+    return Address.query.all()
+
+
 def get_all_dietary_reqs():
     return Dietary.query.with_entities(Dietary.category).all()
 
@@ -61,6 +65,12 @@ def get_address_id_4():
     return str(var[-1].id)
 
 
+
+def add_new_review(review):
+    db.session.add(review)
+    db.session.commit()
+
+
 # Using this to get the address into the individual bakery page
 def get_address_for_bakery(bakery_id):
     if bakery_id > 0:
@@ -74,5 +84,9 @@ def get_address_for_bakery(bakery_id):
 def add_new_customer(customer_member):
     db.session.add(customer_member)
     db.session.commit()
+
+
+def get_all_reviews():
+    return Reviews.query.all()
 
 

@@ -77,27 +77,45 @@
     <!--Bakery seach cards show here-->
     <div class="bakeries-main-container">
       <div class="bakeries-display-box">
-          <table class="table table-striped">
-            <th>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Bakery</th>
-                <th scope="col">Address</th>
-                <th scope="col">Opening Times</th>
-              </tr>
-            </th>
-            <tbody>
+
+
+
+
               <p>Insert map of bakeries in this page</p>
-              {% for bakery in bakeries %}
-              <tr>
-                <th scope="row">{{bakery.id}}</th>
-                <td>{{bakery.shop_name}}</td>
-                <td>{{bakery.address_ref}}</td>
-                <td>{{bakery.opening_times}}</td>
-              </tr>
+
+        <div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Bakery</h2>
+      {% for bakery in bakeries %}
+
+                <p>{{bakery.shop_name}}</p>
+        {% endfor %}
+    </div>
+    <div class="col">
+      <h2>Opening Times</h2>
+      {% for bakery in bakeries %}
+                <p>{{bakery.opening_times}}</p>
               {% endfor %}
-            </tbody>
-          </table>
+    </div>
+    <div class="col">
+      <h2>Address</h2>
+      {% for address in addresses %}
+                <p>
+                    {{ address.house_number}} {{address.street }} {{address.town}} {{address.postcode}}
+                    </p>
+                {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
           <br />
           {{ message }}
         </div>
