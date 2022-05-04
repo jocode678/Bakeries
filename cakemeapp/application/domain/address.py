@@ -11,9 +11,8 @@ class Address(db.Model):
     town: str
     postcode: str
     country: str
-    bakery_id: int
-    bakeries: str
-    
+
+
     id = db.Column(db.Integer, primary_key=True, )
     house_number = db.Column(db.String(10), nullable=True)
     street = db.Column(db.String(30), nullable=True)

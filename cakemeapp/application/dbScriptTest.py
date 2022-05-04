@@ -32,12 +32,11 @@ session = Session()
 # session.add(hero)
 # session.commit()
 
-
-bakery = session.query(Bakeries).filter_by(id=2).first()
-print(bakery.shop_name, bakery.address_ref, bakery.opening_times)
-
-address = session.query(Address).filter_by(id=1).first()
-print(address.id, address.house_number, address.postcode)
+# bakery = session.query(Bakeries).filter_by(id=2).first()
+# print(bakery.shop_name, bakery.address_ref, bakery.opening_times)
+#
+# address = session.query(Address).filter_by(id=1).first()
+# print(address.id, address.house_number, address.postcode)
 
 # Commented out because currently (23.4.22) no data in sql table
 # dietary = session.query(Dietary).filter_by(id=1).first()
