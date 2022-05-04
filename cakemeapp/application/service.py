@@ -19,12 +19,21 @@ def get_all_bakeries():
 
 
 def get_bakery(bakery_id):
-    bakery = Bakeries.query.all()
-    print(bakery)
-    if bakery_id == Bakeries.id:
-        bakery = bakeries.query.filter_by(id=bakery.id).first()
-        print(bakery)
-        return bakery
+    bakeries = Bakeries.query.all()
+    print(bakeries)
+    for bakery in bakeries:
+        if bakery.id == bakery_id:
+            return bakery
+    #for your_bakery in range:
+    #if bakery[Bakeries]["id"]== bakery_id:
+        #print(["id"], ["shop_name"])
+        #return Bakeries["id", "shop_name"]
+    #if bakery_id == Bakeries.id:
+        #print(Bakeries["id", "shop_name"])
+        #ind_bakery= bakery.query.get(bakery_id)
+        #ind_bakery = bakeries.query.filter_by(id=bakery.id).first()
+        #print(ind_bakery)
+        #return ind_bakery
 
 
 #def get_bakery_by_id(bakery_id):

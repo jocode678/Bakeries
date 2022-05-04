@@ -1,16 +1,37 @@
 "use strict";
+var map;
+console.log("Javascript");
+function bakeriesMap() {
+  console.log("Javascript");
 
-let map;
+  var locations = [
+    ["Maison Bertaux", 51.5123, -0.1344],
+    ["Bageriet", 51.52949, -0.12047],
+  ];
 
-function getCoordinates(address) {
-  address = document.getElementById("postcode");
+  var mapOptions = {
+    center: new google.maps.LatLng(51.509865, -0.118092),
+    zoom: 15,
+    mapTypeControl: false,
+    panControl: false,
+    streetViewControl: false,
+    zoomControl: false,
+    disableDoubleClickZoom: true,
+  };
+
+  console.log("hello from js");
+
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {
+    var p = new google.maps.LatLng(locations[i][1], locations[i][2]);
+    marker = new google.maps.Marker({
+      position: p,
+      map: map,
+    });
+  }
 }
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 51.5074, lng: 0.1272 },
-    zoom: 8,
-  });
-}
-
-window.initMap = initMap;
+google.maps.event.addDomListener(window, "load", bakeriesMap);

@@ -1,4 +1,5 @@
 from application import db
+from dataclasses import dataclass
 
 # ORM - Object relational mapping - mapping class to a table
 # DTO - data transfer object
@@ -11,7 +12,6 @@ class Address(db.Model):
     postcode: str
     country: str
     bakery_id: int
-    social_media: str
     bakeries: str
     
     id = db.Column(db.Integer, primary_key=True, )

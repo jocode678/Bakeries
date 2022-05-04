@@ -14,20 +14,28 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" href="static/styles.css" />
-    <script type="module" src="static/index.js"></script>
-    <title>Insert Bakery Name here</title>
+    <script href="static/cakeapp.js"></script>
+    <style rel="stylesheet" href="static/styles.css"></style>
+
+    <title>{{ bakery.shop_name}}</title>
   </head>
   <body>
     <div id="map"></div>
     <div>
       <h1>{{ bakery.shop_name }}</h1>
-      <p></p>
+      {{ bakery.image }}
+      <p>
+        {{ bakery.address.house_number }} {{ bakery.address.street }}, {{
+        bakery.address.town }},
+        <span id="postcode">{{ bakery.address.postcode }}</span>
+      </p>
+      {{ bakery.opening_times }} {{ bakery.website }} {{ bakery.social_media }}
+      {{ bakery.dietary_ref }}
       <br />
       {{ message }}
     </div>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnLUC4dz0N4gBIWxRmB3Xwds7drOxKc-8&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnLUC4dz0N4gBIWxRmB3Xwds7drOxKc-8&callback=initialise&v=weekly"
       defer
     ></script>
   </body>
