@@ -32,7 +32,6 @@ def get_bakery_by_id(bakery_id):
         return None
 
 
-
 def get_customer_by_id(customer_id):
     if customer_id > 0:
         return CustomerMember.query.get(customer_id)
@@ -55,37 +54,6 @@ def add_new_address(address_new):
     db.session.add(address_new)
     db.session.commit()
 
-
-# def get_address_id(address_new):
-#     return Address.query.all()
-
-
-
-# def get_address_id_1(address_new):
-#     address = address_new
-#     db.session.flush()
-#     db.session.refresh(address)
-#     return Address.query.get(id)
-
-
-# print(get_address_id_1('asd'))
-
-# def get_address_id_2():
-#     return Address.query.with_entities(Address.id).first()
-
-
-# print(get_address_id_2())
-
-
-# def get_address_id_3(address_new):
-#     table = Address.query.with_entities(Address.street).all()
-#     print('table is', table)
-#     print('address_new is', address_new)
-#     for row in table:
-#         if address_new in Address.street:
-#             return Address.id
-
-# print(get_address_id_3('asd'))
 
 # This returns the latest added address.
 def get_address_id_4():
