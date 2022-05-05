@@ -122,11 +122,13 @@ def add_review():
         else:
             review = Reviews(stars=stars, review=review, bakery_ref=bakery_ref)
             service.add_new_review(review)
-            bakery = service.get_all_bakeries()
             # Converting bakery_ref to bakery_id in order to pass into the function to get the address
             bakery_id = int(bakery_ref)
+            bakery = service.get_bakery_by_id(bakery_id)
+            reviews = service.get_all_reviews()
+
             address = service.get_address_for_bakery(bakery_id)
-            return render_template('individual_bakery.html', bakery=bakery, address=address, review=review, message=error)
+            return render_template('individual_bakery.html', bakery=bakery, address=address, review=reviews, message=error)
     return render_template('add_review.html', form=form, message=error)
 
 
