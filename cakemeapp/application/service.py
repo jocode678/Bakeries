@@ -73,7 +73,6 @@ def get_address_by_id(bakery_id):
     else:
         return None
 
-print(get_address_by_id(1))
 
 def add_new_bakery(bakery):
     db.session.add(bakery)
@@ -105,6 +104,7 @@ def get_address_for_bakery(bakery_id):
     else:
         return None
 
+
 # CHANGE ABOVE IF TIME - look up address id in the bakery table, don't just assume it will be the same id number
 
 def add_new_customer(customer_member):
@@ -114,5 +114,15 @@ def add_new_customer(customer_member):
 
 def get_all_reviews():
     return Reviews.query.all()
+
+
+
+# Try this for reviews??
+# def get_address_by_id(bakery_id):
+#     if bakery_id is True:
+#         return bakeries.query.get(Bakeries.bakery_address)
+#         #return Address.query.get(bakery_id)
+#     else:
+#         return None
 
 

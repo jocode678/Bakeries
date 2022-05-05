@@ -66,20 +66,29 @@
         <p>the opening times are{{bakery.opening_times}}</p>
         <br>
         <p>the address is {{address.street}}</p>
+        <p>this is bakery id {{ bakery.id }}</p>
         <br>
         {{ message }}
+    </div>
 
     <!--./Reviews section-->
+        <div>
         <p>Click this link to add a review for this bakery</p>
 
         <p>Here are the reviews: </p>
         <br>
 <!--        Add if statement here to only print if rev.bakery_ref is = to the bakery_ref on the page-->
-        {% for rev in review %}
-        <p>{{rev.stars}} {{rev.review}}</p>
-        {% endfor %}
+<!--        {% if bakery.id == review.bakery_ref %}-->
+<!--            {% for rev in review %}-->
+<!--                {% if bakery.id == bakery_ref %}-->
+<!--                    <p>{{rev.stars}} {{rev.review}}</p>-->
+<!--                {% endif %}-->
+<!--            {% endfor %}-->
+<!--        {% else %}-->
+<!--            <p> This bakery has no reviews yet </p>-->
+<!--        {% endif %}-->
 
-<!--        Need to  return all reviews not just one -->
+        </div>
 
 
 
