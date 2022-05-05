@@ -10,6 +10,7 @@ from application.domain.customer_member import CustomerMember
 from application.domain.administrator import Administrator
 from application.domain.bakery_owner import BakeryOwner
 from application.domain.reviews import Reviews
+from application import db
 
 
 @app.route('/home')
@@ -38,18 +39,17 @@ def show_bakeries():
         error = "There are no bakeries to display"
     return render_template('bakery.html', bakeries=bakeries, message=error)
 
-# This is working now 25.4.22
+
 @app.route('/bakery/<int:bakery_id>', methods=['GET'])
 def show_bakery(bakery_id):
     error = ""
     bakery = service.get_bakery_by_id(bakery_id)
+    address = service.get_address_for_bakery(bakery_id)
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
-    return render_template('individual_bakery.html', bakery=bakery, message=error)
+    return render_template('individual_bakery.html', bakery=bakery, address=address, message=error)
 
 
-
-# This is working now 25.4.22
 @app.route('/myprofile/<int:customer_id>', methods=['GET'])
 def show_customer_profile(customer_id):
     error = ""
@@ -60,15 +60,19 @@ def show_customer_profile(customer_id):
 
 
 # FORMS
-@app.route('/new_bakery', methods=['GET','POST'])
+@app.route('/new_bakery', methods=['GET', 'POST'])
 def add_new_bakery():
     error = ""
     form = BakeryOwnerForm()
 
     if request.method == 'POST':
         form = BakeryOwnerForm(request.form)
-        print(form.shop_name.data)
         shop_name = form.shop_name.data
+        house_number = form.house_number.data
+        street = form.street.data
+        town = form.town.data
+        postcode = form.postcode.data
+        country = form.country.data
         opening_times = form.opening_times.data
         phone = form.phone.data
         website = form.website.data
@@ -87,11 +91,16 @@ def add_new_bakery():
         if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
             error = "Please fill in all fields with a *"
         else:
-            bakery = Bakeries(shop_name=shop_name, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten, dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
+            address_new = Address(house_number=house_number, street=street,
+                                  town=town, postcode=postcode, country=country)
+            service.add_new_address(address_new)
+            new_address_id = service.get_address_id_4()
+            bakery = Bakeries(shop_name=shop_name, address_ref=new_address_id, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten,
+                              dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
-            # change this below to the individual bakery page
-            return render_template('bakery.html', bakeries=bakeries, message=error)
+            # I changed this below to navigate to the newly created individual bakery page
+            return render_template('individual_bakery.html', bakery=bakery, address=address_new, message=error)
     return render_template('new_bakery_form.html', form=form, message=error)
 
 # @app.route('/new_customer_member', methods=['GET', 'POST'])
@@ -120,3 +129,42 @@ def add_new_bakery():
 #         return render_template('new_customer_form.html', form=form, message=error)
 
 
+# search- NOT WORKING!
+
+# @app.route('/api/data')
+# def data():
+#     query = Bakeries.query
+# # Bakery.query.filter(db.or_(
+#     search = request.args.get('search[value]')
+#     if search:
+#         query = query.filter(db.or_(
+#             Bakeries.shop_name.like('%ar%')
+#         ))
+#     total_filtered = query.count()
+
+
+# # sorting
+# order = []
+# i = 0
+# while True:
+#     col_index = request.args.get(f'order[{i}][column]')
+#     if col_index is None:
+#         break
+#     col_name = request.args.get(f'columns[{col_index}][data]')
+#     if col_name not in ['name']:
+#         col_name = 'name'
+#     decending = request.args.get(f'order[{i}][dir]') == 'desc'
+#     col = getattr(Bakeries, col_name)
+#     if decending:
+#         col = col.desc()
+#     order.append(col)
+#     i += 1
+# if order:
+#     query = query.order_by(*order)
+
+# return {
+#     'data': [Bakeries.to_dict() for bakery in query],
+#     'recordsFiltered': total_filtered,
+#     'recordsTotal': Bakeries.query.count(),
+#     'draw': request.args.get('draw', type=int),
+# }

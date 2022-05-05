@@ -6,6 +6,10 @@ from application.domain.customer_member import CustomerMember
 from application.domain.administrator import Administrator
 from application.domain.bakery_owner import BakeryOwner
 from application.domain.reviews import Reviews
+# from sqlalchemy import create_engine
+# from sqlalchemy.orm import sessionmaker
+# engine = create_engine('mysql+pymysql://root:password@localhost/cakeme', echo=True)
+# Session = sessionmaker(bind=engine)
 
 from application import db
 
@@ -45,6 +49,27 @@ def add_new_bakery(bakery):
     db.session.add(bakery)
     db.session.commit()
 
+
+def add_new_address(address_new):
+    db.session.add(address_new)
+    db.session.commit()
+
+
+# This returns the latest added address.
+def get_address_id_4():
+    var = Address.query.all()
+    return str(var[-1].id)
+
+
+# Using this to get the address into the individual bakery page
+def get_address_for_bakery(bakery_id):
+    if bakery_id > 0:
+        address_id = bakery_id
+        return Address.query.get(address_id)
+    else:
+        return None
+
+# CHANGE ABOVE IF TIME - look up address id in the bakery table, don't just assume it will be the same id number
 
 def add_new_customer(customer_member):
     db.session.add(customer_member)
