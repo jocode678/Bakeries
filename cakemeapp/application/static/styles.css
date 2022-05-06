@@ -1,7 +1,10 @@
+/* Background and Main Text Styles */
 body, html {
   width: 100%;
   height: 100%;
   font-family: "Helvetica Neue";
+  margin: 0, auto;
+  padding: 0;
 }
 
 .bg {
@@ -13,37 +16,43 @@ body, html {
   background-size: cover;
 }
 
-/* .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #000;
-  opacity: 0.2;
-  height: 100%;
-  width: 100%;
-} */
+.navbar {
+padding: 25px;
+}
 
-h1, h2, p {
+
+h1, h2 {
   font-family: verdana;
   color: white;
   text-align: center;
 }
 
+/* Footer Styles*/
+
 .footer {
-  height: 8%;
+  height: 10%;
   width: 100%;
   background-color: beige;
   color: black;
   text-align: center;
 }
 
-.footer-text {
+.footer-text, .footer-copy {
   color: black;
+  font-size: 18px;
+}
+
+.emphasised {
+  font-style: italic;
 }
 
 .footer-copy {
   color: black;
 }
+
+/* Footer Styles End */
+
+/* General Styles */
 
 .about-us, .bakeries-display-box, .contact-us-section {
   width: 90%;
@@ -75,17 +84,28 @@ p {
   font-family: verdana;
   font-size: 24px;
 }
-footer {
+
+/* General Styles End */
+
+/* footer {
   font-size: 1.2em;
   text-align: center;
   color: gray;
-}
+} */
+
+/* Search Bar Styles */
 
 .error_message {
   font-size: 1.3em;
   color: red;
 }
 
+#map {
+  height: 500px;
+  width: 400px;
+  margin: 0, auto;
+  padding: 0;
+}
 #searchbar {
   margin-left: 15%;
   padding: 15px;
@@ -111,20 +131,39 @@ input[type=text]:focus {
   display: list-item;
 } 
 
+/* Search Bar Styles End */
+
+/* Home Styles */
+
 .home-tagline-box {
-  width: 90%;
+  width: 85%;
   height: 90%;
   background-color: beige;
   margin-left: auto;
   margin-right: auto;
+  background:rgba(255, 255, 255, 0.60);
+}
+
+.home-tagline-text {
+  justify-content: center;
+  color: black;
+  text-align: center;
+  padding: 5px;
+  font-style: italic;
+}
+
+.homepage-logo {
+  width: 400px;
+  height: 400px;
+  padding: 40px;
+}
+
+.homepage-logo-section {
   display: flex;
   justify-content: center;
 }
 
-.home-tagline-text {
-  text-align: center;
-  color: black;
-}
+/* Contact Us Styles */
 
 .social-icons {
   width: 70px;
@@ -132,3 +171,21 @@ input[type=text]:focus {
   display: flex;
   justify-content: center;
 }
+
+/* .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
+} */
+
+
+/* pratice the demo- user journey */ /* one user demo person */
+/* showcase everything */
+/* future steps */
+/* presentation slides- bullet points- fun, introduce yourseves, 
+introduce your idea, progress- who worked on what, how did we track our work, 
+git management, particular code achievements what did we enjoy, difficulties, conflicts how to sove it?

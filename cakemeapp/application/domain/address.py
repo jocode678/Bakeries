@@ -19,5 +19,5 @@ class Address(db.Model):
     town = db.Column(db.String(20), nullable=True)
     postcode = db.Column(db.String(10), nullable=False)
     country = db.Column(db.String(20), nullable=True)
-    bakeries_address = db.relationship('Bakeries', backref='bakeries_address')
+    bakeries_address = db.relationship("Bakeries", backref="bakeries_address")
 

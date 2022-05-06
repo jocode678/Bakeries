@@ -1,5 +1,10 @@
 from application import db
 from dataclasses import dataclass
+#from sqlalchemy import Table, Column, Integer, ForeignKey
+#from sqlalchemy.orm import relationship
+#from sqlalchemy.ext.declarative import declarative_base
+
+
 
 
 # the annotation below will help to turn the Python object into a JSON object
@@ -28,6 +33,7 @@ class Bakeries(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     shop_name = db.Column(db.String(30), nullable=False)
     address_ref = db.Column(db.Integer, db.ForeignKey('address.id'), nullable=True)
+
     opening_times = db.Column(db.String(100), nullable=True)
     phone = db.Column(db.String(15), nullable=True)
     website = db.Column(db.String(50), nullable=True)

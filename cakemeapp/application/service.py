@@ -1,3 +1,4 @@
+from application.domain import bakeries
 from application.domain.bakeries import Bakeries
 from application.domain.address import Address
 from application.domain.dietary import Dietary
@@ -25,6 +26,29 @@ def get_all_addresses():
     return Address.query.all()
 
 
+def get_bakery(bakery_id):
+    bakeries = Bakeries.query.all()
+    print(bakeries)
+    for bakery in bakeries:
+        if bakery.id == bakery_id:
+            return bakery
+    #for your_bakery in range:
+    #if bakery[Bakeries]["id"]== bakery_id:
+        #print(["id"], ["shop_name"])
+        #return Bakeries["id", "shop_name"]
+    #if bakery_id == Bakeries.id:
+        #print(Bakeries["id", "shop_name"])
+        #ind_bakery= bakery.query.get(bakery_id)
+        #ind_bakery = bakeries.query.filter_by(id=bakery.id).first()
+        #print(ind_bakery)
+        #return ind_bakery
+
+
+#def get_bakery_by_id(bakery_id):
+    #if bakery_id > 0:
+        #return Bakeries.query.get(bakery_id)
+    #else:
+        #return None
 def get_all_dietary_reqs():
     return Dietary.query.with_entities(Dietary.category).all()
 
@@ -42,13 +66,15 @@ def get_customer_by_id(customer_id):
     else:
         return None
 
+def get_address_by_id(bakery_id):
+    if bakery_id is True:
+        return bakeries.query.get(Bakeries.bakery_address)
+        #return Address.query.get(bakery_id)
+    else:
+        return None
 
-# def get_team_by_id(team_id):
-#     if team_id < 100:
-#         return Address.query.get(team_id)
-#     else:
-#         return None
-#
+print(get_address_by_id(1))
+
 def add_new_bakery(bakery):
     db.session.add(bakery)
     db.session.commit()

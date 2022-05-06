@@ -1,5 +1,5 @@
 from flask import render_template, request, jsonify
-
+from pymysql import connect
 from application import app, service
 from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm, AddReviews
 from application.domain.bakeries import Bakeries
