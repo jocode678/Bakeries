@@ -47,7 +47,7 @@ def show_bakery(bakery_id):
     error = ""
     bakery = service.get_bakery_by_id(bakery_id)
     address = service.get_address_for_bakery(bakery_id)
-    reviews = service.get_all_reviews()
+    reviews = service.get_reviews_for_bakery_ref(bakery_id)
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
     return render_template('individual_bakery.html', bakery=bakery, address=address, review=reviews, message=error)

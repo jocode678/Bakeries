@@ -7,11 +7,6 @@ from application.domain.customer_member import CustomerMember
 from application.domain.administrator import Administrator
 from application.domain.bakery_owner import BakeryOwner
 from application.domain.reviews import Reviews
-# from sqlalchemy import create_engine
-# from sqlalchemy.orm import sessionmaker
-# engine = create_engine('mysql+pymysql://root:password@localhost/cakeme', echo=True)
-# Session = sessionmaker(bind=engine)
-from sqlalchemy import literal
 
 from application import db
 
@@ -21,18 +16,6 @@ def get_all_bakeries():
     # bakeries = db.session.query(Bakeries)
     # return bakeries
     return Bakeries.query.all()
-
-
-# Jo trying different logic
-def get_all_bakeries_db():
-    # alternatively, the db object from application may be used
-    # This works
-    # x = db.session.query(Bakeries).all()
-    x = Bakeries.query.filter_by(shop_name='Bageriet').all()
-    return x
-
-
-print(get_all_bakeries_db())
 
 
 def get_all_addresses():
@@ -82,7 +65,6 @@ def get_customer_by_id(customer_id):
 def get_address_by_id(bakery_id):
     if bakery_id is True:
         return bakeries.query.get(Bakeries.bakery_address)
-        #return Address.query.get(bakery_id)
     else:
         return None
 
@@ -129,13 +111,7 @@ def get_all_reviews():
     return Reviews.query.all()
 
 
-
-# Try this for reviews??
-# def get_address_by_id(bakery_id):
-#     if bakery_id is True:
-#         return bakeries.query.get(Bakeries.bakery_address)
-#         #return Address.query.get(bakery_id)
-#     else:
-#         return None
-
+def get_reviews_for_bakery_ref(bakery_id):
+    reviews_by_id = Reviews.query.filter_by(bakery_ref=bakery_id).all()
+    return reviews_by_id
 
