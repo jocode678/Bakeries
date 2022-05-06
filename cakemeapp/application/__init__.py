@@ -4,6 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import getenv
 
+# setup static folder route
 
 # create a new instance of Flask and store it in app
 app = Flask(__name__)

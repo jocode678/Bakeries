@@ -11,6 +11,7 @@ from application.domain.reviews import Reviews
 # from sqlalchemy.orm import sessionmaker
 # engine = create_engine('mysql+pymysql://root:password@localhost/cakeme', echo=True)
 # Session = sessionmaker(bind=engine)
+from sqlalchemy import literal
 
 from application import db
 
@@ -20,6 +21,18 @@ def get_all_bakeries():
     # bakeries = db.session.query(Bakeries)
     # return bakeries
     return Bakeries.query.all()
+
+
+# Jo trying different logic
+def get_all_bakeries_db():
+    # alternatively, the db object from application may be used
+    # This works
+    # x = db.session.query(Bakeries).all()
+    x = Bakeries.query.filter_by(shop_name='Bageriet').all()
+    return x
+
+
+print(get_all_bakeries_db())
 
 
 def get_all_addresses():
