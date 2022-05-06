@@ -13,7 +13,7 @@ class Bakeries(db.Model):
     # the declarations below are important for turning the object into JSON
     id: int
     shop_name: str
-    address_ref:str
+    address_ref: str
     opening_times: str
     phone: str
     website: str

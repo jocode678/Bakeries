@@ -21,9 +21,9 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-
     <link rel="stylesheet" href="/static/styles.css" />
     <title>Bakery Page</title>
+
   </head>
 
   <body class="bg">
@@ -86,29 +86,43 @@
     <!--Bakery seach cards show here-->
     <div class="bakeries-main-container">
       <div class="individual-bakery">
+        <p>Is the map under here?</p>
              <div id="map"></div>
 
         </div>
-      <div class="bakeries-display-box">
-          <table class="table table-striped">
-            <th>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Bakery</th>
-                <th scope="col">Address</th>
-                <th scope="col">Opening Times</th>
-              </tr>
-            </th>
-            <tbody>
 
-              {% for bakery in bakeries %}
-              <tr>
-                <th scope="row">{{bakery.id}}</th>
-                <td>{{bakery.shop_name}}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+<!--Bakery seach cards show here-->
+      <div class="bakeries-display-box">
+        <div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Bakery</h2>
+      {% for bakery in bakeries %}
+        <p>{{bakery.shop_name}}</p>
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h2>Opening Times</h2>
+      {% for bakery in bakeries %}
+        <p>{{bakery.opening_times}}</p>
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h2>Address</h2>
+      {% for address in addresses %}
+        <p>{{ address.house_number}} {{address.street }} {{address.town}} {{address.postcode}}</p>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
           <br />
           {{ message }}
         </div>

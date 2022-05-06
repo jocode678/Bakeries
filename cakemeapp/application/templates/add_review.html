@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,21 +10,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!--Styles/CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/cakemeapp/application/static/styles.css" />
     <title>Cake Me!</title>
 </head>
 
 <body class="bg">
     <!--Overlay-->
     <div class="overlay"></div>
-    <!--Nav Container-->
+    <!--Container-->
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <!-- <h1>Cake Me!</h1> -->
+                <h1>Cake Me!</h1>
                 <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -32,8 +33,8 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
+                        <img src="">
                         <!--Logo-->
-                            <!-- <img class="homepage-logo" src="/cakemeapp/application/static/images/bakery-logo.jpeg" alt="bakery-logo">  -->
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
                         </li>
@@ -52,23 +53,41 @@
             </div>
         </nav>
     </div>
-    <!--./End of Nav container-->
-    <!--Home Main Container-->
-    <section clas="home-container">
-        <div class="home-main-section">
-            <div class="home-tagline-box">
-                <!-- Logo -->
-                <div class="homepage-logo-section">
-                    <img class="homepage-logo" src="/static/images/bakery-logo.png" alt="bakery-logo">
-                </div>
-                <div class="home-tagline-text">
-                    <p>Welcome to Cake Me!</p>                       
-                    <p>The first stop for all cake lovers to locate the nearest and (yummiest) bakeries in your area! Enjoy!</p>
-                </div>
+    <!--./End of container-->
+
+
+    <!-- Adding review Section starts -->
+<div class='container-sm' style="width:50%">
+    <form method='POST' action=''>
+        <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
+        {{ form.csrf_token }}
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.stars.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.stars(class_="form-control", size =32)}}</div>
             </div>
         </div>
-    </section>
-    <!--./End of Home Main container-->
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.review.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.review(class_="form-control", size =32)}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.bakery_ref.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.bakery_ref(class_="form-control", size =32) }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.submit(class_="btn btn-primary mb-3") }}</div>
+            </div>
+        </div>
+
+
+    <!--./Adding reviews Section ends-->
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -82,9 +101,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
     <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
-    <footer class="footer fixed-bottom" >
-    <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!</p>
-    <p class="footer-copy"><span class="emphasised">&copy;2022</p></span>
+    <footer class="footer fixed-bottom">
+        <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!
+        </p>
+        <p class="footer-copy">&copy; 2022</p>
     </footer>
 </body>
+
 </html>
