@@ -11,7 +11,7 @@ function bakeriesMap() {
 
   var mapOptions = {
     center: new google.maps.LatLng(51.509865, -0.118092),
-    zoom: 15,
+    zoom: 12,
     mapTypeControl: false,
     panControl: false,
     streetViewControl: false,
