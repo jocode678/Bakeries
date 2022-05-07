@@ -27,6 +27,13 @@ h1, h2 {
   text-align: center;
 }
 
+h3 {
+  font-family: verdana;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
 /* Footer Styles*/
 
 .footer {
@@ -80,6 +87,19 @@ h1, h2 {
   border-color: white;
 }
 
+.founders-image{
+  width: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 4px solid transparent;
+  border-image: url(border.png) 30 round;
+  border-color: white;
+}
+
 p {
   font-family: verdana;
   font-size: 24px;
@@ -100,17 +120,26 @@ p {
   color: red;
 }
 
+#individual-bakery {
+    border: 2px, solid, black;
+    position: center;
+    margin: 10px;
+}
 #map {
   height: 500px;
-  width: 400px;
-  margin: 0, auto;
-  padding: 0;
+  width: 90%;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 2px;
+  position: relative;
+
 }
 #searchbar {
   margin-left: 15%;
   padding: 15px;
   border-radius: 10px;
 }
+
 
 input[type=text] {
   width: 30%;

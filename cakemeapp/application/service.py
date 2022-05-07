@@ -7,10 +7,6 @@ from application.domain.customer_member import CustomerMember
 from application.domain.administrator import Administrator
 from application.domain.bakery_owner import BakeryOwner
 from application.domain.reviews import Reviews
-# from sqlalchemy import create_engine
-# from sqlalchemy.orm import sessionmaker
-# engine = create_engine('mysql+pymysql://root:password@localhost/cakeme', echo=True)
-# Session = sessionmaker(bind=engine)
 
 from application import db
 
@@ -20,6 +16,10 @@ def get_all_bakeries():
     # bakeries = db.session.query(Bakeries)
     # return bakeries
     return Bakeries.query.all()
+
+
+def get_all_addresses():
+    return Address.query.all()
 
 
 def get_bakery(bakery_id):
@@ -65,11 +65,9 @@ def get_customer_by_id(customer_id):
 def get_address_by_id(bakery_id):
     if bakery_id is True:
         return bakeries.query.get(Bakeries.bakery_address)
-        #return Address.query.get(bakery_id)
     else:
         return None
 
-print(get_address_by_id(1))
 
 def add_new_bakery(bakery):
     db.session.add(bakery)
@@ -87,6 +85,11 @@ def get_address_id_4():
     return str(var[-1].id)
 
 
+def add_new_review(review):
+    db.session.add(review)
+    db.session.commit()
+
+
 # Using this to get the address into the individual bakery page
 def get_address_for_bakery(bakery_id):
     if bakery_id > 0:
@@ -95,6 +98,7 @@ def get_address_for_bakery(bakery_id):
     else:
         return None
 
+
 # CHANGE ABOVE IF TIME - look up address id in the bakery table, don't just assume it will be the same id number
 
 def add_new_customer(customer_member):
@@ -102,6 +106,17 @@ def add_new_customer(customer_member):
     db.session.commit()
 
 
+<<<<<<< HEAD
 def add_new_image(upload_images):
     db.session.add(upload_images)
     db.session.commit()
+=======
+def get_all_reviews():
+    return Reviews.query.all()
+
+
+def get_reviews_for_bakery_ref(bakery_id):
+    reviews_by_id = Reviews.query.filter_by(bakery_ref=bakery_id).all()
+    return reviews_by_id
+
+>>>>>>> 825c6b54fc23774b44e1d9b390f3584fb5682d3c
