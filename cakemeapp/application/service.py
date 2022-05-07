@@ -102,3 +102,6 @@ def add_new_customer(customer_member):
     db.session.commit()
 
 
+def add_new_image(upload_images):
+    db.session.add(upload_images)
+    db.session.commit()
