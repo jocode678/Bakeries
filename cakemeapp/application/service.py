@@ -85,7 +85,6 @@ def get_address_id_4():
     return str(var[-1].id)
 
 
-
 def add_new_review(review):
     db.session.add(review)
     db.session.commit()
