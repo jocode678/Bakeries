@@ -1,66 +1,80 @@
 /* Background and Main Text Styles */
-body, html {
+body,
+html {
   width: 100%;
-  
-  font-family: 'Poppins', sans-serif;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
   margin: 0, auto;
   padding: 0;
 }
 
 .bg {
-  background: rgba( 211, 165, 136);
+  background: rgba(211, 165, 136);
   background-image: url(images/bakery-front-image.jpeg);
   height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  
 }
 
 .navbar {
-padding: 25px;
+  padding: 25px;
 }
 
 .nav-bg {
   padding-top: 2%;
   padding-bottom: 2%;
-  
-  
-  background:rgba( 211, 165, 136, 0.8);
+  border-radius: 20px;
+
+  background: rgba(211, 165, 136, 0.8);
 }
 
-h1, h2 {
+h1 {
   color: white;
+}
+h1,
+h2 {
   text-align: center;
   font-weight: 600;
 }
 
 h3 {
-  
-  color: black;
+  color: rgb(55, 81, 95);
   text-align: center;
   font-weight: bold;
 }
 
-.h2-black {
-  color:rgb(55, 81, 95);
+form {
+  width: 80%;
 }
 
+.menu-logo {
+  max-width: 100%;
+  height: auto;
 
+  object-fit: scale-down;
+  width: 120px;
+}
+.h2-black {
+  color: rgb(55, 81, 95);
+}
 
 /* Footer Styles*/
 
 .footer {
-  height: 10%;
-  width: 100%;
-  background-color: rgba( 211, 165, 136);
-  color: black;
+  height: 20%;
+  width: 80%;
+  background-color: rgb(211, 165, 136, 0.8);
+
   text-align: center;
+  margin-left: 10%;
+  border-radius: 10px;
 }
 
-.footer-text, .footer-copy {
-  color: black;
-  font-size: 18px;
+.footer-text,
+.footer-copy {
+  color: antiquewhite;
+  font-size: 12px;
 }
 
 .emphasised {
@@ -75,22 +89,61 @@ h3 {
 
 /* General Styles */
 
-.about-us, .bakeries-display-box, .contact-us-section {
-  width: 90%;
+.home-container,
+.about-us,
+.bakeries-display-box,
+.contact-us-section,
+.upload-image-form-container,
+.review-container,
+.new-bakery-form-container,
+.bakery-form-link {
+  width: 80%;
   height: 90%;
-  background-color: rgba( 211, 165, 136, 0.9);
+  background-color: rgba(211, 165, 136, 0.9);
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
-  color: black;
+  color: rgb(55, 81, 95);
+  border-radius: 10px;
 }
 
+.upload-image-form {
+  justify-content: center;
+  text-align: center;
+}
+
+.form-border {
+  border: 1px solid;
+  border-color: rgb(55, 81, 95);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  padding: 15px 0px;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: #7fd1b9;
+}
 .bakeries-display-box {
   padding-bottom: 30px;
 }
 
-.about-us-image, .contact-us-front-image {
+.about-us-text {
+  font-size: smaller;
+  justify-content: center;
+}
+.about-us-container div {
+  border-top: 1px solid;
+  padding: 5px;
+  margin-top: 2px;
+  border-color: rgb(55, 81, 95);
+  text-align: center;
+}
+.about-us-image,
+.contact-us-front-image {
   background-image: url(images/AboutUsImage.jpeg);
   width: 300px;
   height: 200px;
@@ -99,27 +152,30 @@ h3 {
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 5px;
   display: block;
   border: 4px solid transparent;
+  border-radius: 5px;
   border-image: url(border.png) 30 round;
-  border-color: white;
+  border-color: rgb(55, 81, 95);
 }
 
-.founders-image{
-  width: 250px;
-  background-position: center;
+.founders-image {
+  height: 160px;
+  width: 160px;
+  object-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
   margin-left: auto;
   margin-right: auto;
   display: block;
   border: 4px solid transparent;
   border-image: url(border.png) 30 round;
-  border-color: white;
+  border-color: rgb(55, 81, 95);
+  border-radius: 50%;
 }
 
 p {
-  
   font-size: 24px;
   margin: 0px 0px 0px 0px;
   line-height: normal;
@@ -141,48 +197,45 @@ p {
 }
 
 .individual-bakery-container {
-    border: 2px, solid, black;
-    position: center;
-    margin: 5% 10% 5% 10%;
-    padding: 20px 0px 0px 0px;
-    background:rgba( 211, 165, 136, 0.8);
-    
-    
+  position: center;
+  margin: 0% 10% 5% 10%;
+  padding: 20px 0px 0px 0px;
+  background: rgba(211, 165, 136, 0.8);
+  justify-content: center;
+  border-radius: 10px;
 }
 
 .individual-bakery {
   justify-content: center;
   margin-right: 9%;
-  
 }
 
 .bakery-text {
-text-align: center;
-justify-content: center;
-
-
+  text-align: center;
+  justify-content: center;
 }
 
-.dietary-table, .bakeries-table {
+.dietary-table,
+.bakeries-table {
   text-align: center;
-  width:100%; 
-  
+  width: 80%;
+
   margin-top: 5%;
   border: 2px solid;
   border-color: rgb(55, 81, 95);
-  
 }
 
 .dietary-table {
-margin-left: 8%; 
+  margin-left: 8%;
   margin-right: 8%;
 }
 
-.bakeries-table p, h2 {
+.bakeries-table p,
+h2 {
   padding: 15px;
-  margin-left: 6%; 
+  margin-left: 6%;
   margin-right: 6%;
-  
+  width: 100%;
 }
 
 tr {
@@ -190,10 +243,11 @@ tr {
   text-align: center;
 }
 th {
-  border-bottom:3px solid;
+  border-bottom: 3px solid;
   border-color: rgb(55, 81, 95);
 }
-th, td {
+th,
+td {
   border-right: 2px solid;
   border-color: rgb(55, 81, 95);
 }
@@ -205,9 +259,7 @@ th, td {
   padding: 5px;
   border-radius: 20px;
   border: 15px solid;
-  border-color: rgba( 211, 165, 136, 0.9);
-  
-
+  border-color: rgba(211, 165, 136, 0.9);
 }
 #searchbar {
   justify-content: center;
@@ -215,14 +267,13 @@ th, td {
   border-radius: 10px;
 }
 
-
-input[type=text] {
+input[type="text"] {
   width: 30%;
   -webkit-transition: width 0.15s ease-in-out;
   transition: width 0.15s ease-in-out;
 }
 
-input[type=text]:focus {
+input[type="text"]:focus {
   width: 70%;
 }
 
@@ -233,28 +284,11 @@ input[type=text]:focus {
 
 .bakeries {
   display: list-item;
-} 
+}
 
 /* Search Bar Styles End */
 
 /* Home Styles */
-
-.home-tagline-box {
-  width: 85%;
-  height: 90%;
-  background-color: beige;
-  margin-left: auto;
-  margin-right: auto;
-  background:rgba(255, 255, 255, 0.60);
-}
-
-.home-tagline-text {
-  justify-content: center;
-  color: black;
-  text-align: center;
-  padding: 5px;
-  font-style: italic;
-}
 
 .homepage-logo {
   width: 400px;
@@ -286,10 +320,10 @@ input[type=text]:focus {
   width: 100%;
 } */
 
-
 /* pratice the demo- user journey */ /* one user demo person */
 /* showcase everything */
 /* future steps */
 /* presentation slides- bullet points- fun, introduce yourseves, 
 introduce your idea, progress- who worked on what, how did we track our work, 
 git management, particular code achievements what did we enjoy, difficulties, conflicts how to sove it?
+*/
