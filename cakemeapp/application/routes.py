@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, url_for
 from pymysql import connect
 from application import app, service
 from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm, AddReviews
@@ -48,9 +48,11 @@ def show_bakery(bakery_id):
     bakery = service.get_bakery_by_id(bakery_id)
     address = service.get_address_for_bakery(bakery_id)
     reviews = service.get_reviews_for_bakery_ref(bakery_id)
+    image_file = url_for('static', filename=bakery.image)
+    print(image_file)
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
-    return render_template('individual_bakery.html', bakery=bakery, address=address, review=reviews, message=error)
+    return render_template('individual_bakery.html', bakery=bakery, address=address, image_file=image_file, review=reviews, message=error)
 
 
 @app.route('/myprofile/<int:customer_id>', methods=['GET'])

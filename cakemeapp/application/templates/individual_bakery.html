@@ -85,6 +85,17 @@
     <!--Individual Bakery Section-->
     <section class="individual-bakery-container">
       <div class="bakery-text">
+        <div>
+          Image of Bakery {% for bakery in bakeries %}
+          <img
+            class="image"
+            src="{{ image_file }}"
+            alt="image of bakery"
+            style="width: 100px"
+          />
+          {% endfor %}
+        </div>
+
         <h2 style="text-decoration: underline; font-weight: bolder">
           {{bakery.shop_name}}
         </h2>
