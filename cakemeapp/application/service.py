@@ -121,7 +121,4 @@ def get_reviews_for_bakery_ref(bakery_id):
     return reviews_by_id
 
 
-print(get_reviews_for_bakery_ref(11))
-
-
 
