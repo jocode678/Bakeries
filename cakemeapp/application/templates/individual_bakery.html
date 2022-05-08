@@ -151,9 +151,6 @@
 <a href="/add_review">Click this link to add a review for this bakery</a>
 
 <div class="bakery-text">
-  {% if len(review) == 0 %}
-    <p>This bakery has no reviews yet. Use the link above to add your review.</p>
-  {% else %}
         <table class="dietary-table" class="d-flex" class="center">
           <tr>
             <th>
@@ -184,7 +181,6 @@
           </tr>
           {% endfor %}
   </table>
-  {% endif %}
 
       </div>
     </section>
