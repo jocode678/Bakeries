@@ -145,26 +145,45 @@
         {{ message }}
 
         <!--./Reviews section-->
-
-        <p>Click this link to add a review for this bakery</p>
-
-        <p>Here are the reviews:</p>
-        <br />
-
-        {% for rev in review %}
-        <p>{{rev.stars}} {{rev.review}}</p>
-        {% endfor %}
-
-        <!--        Add if statement here to only print if rev.bakery_ref is = to the bakery_ref on the page-->
-        <!--        {% if bakery.id == review.bakery_ref %}-->
-        <!--            {% for rev in review %}-->
-        <!--                {% if bakery.id == bakery_ref %}-->
-        <!--                    <p>{{rev.stars}} {{rev.review}}</p>-->
-        <!--                {% endif %}-->
-        <!--            {% endfor %}-->
-        <!--        {% else %}-->
-        <!--            <p> This bakery has no reviews yet </p>-->
-        <!--        {% endif %}-->
+        <br>
+        <h3>Reviews</h3>
+        <a href="/add_review">Click this link to add a review for this bakery</a>
+        
+        <div class="bakery-text">
+          {% if review == [] %}
+          <p>This bakery has no reviews yet. Use the link above to add your review.</p>
+          {% else %}
+          <table class="dietary-table" class="d-flex" class="center">
+            <tr>
+              <th>
+                <h2 class="h2-black">Star rating</h2>
+              </th>
+              <th>
+                <h2 class="h2-black">Review description</h2>
+              </th>
+            </tr>
+            {% for rev in review %}
+            <tr>
+              <td>
+                {% if rev.stars == 5 %}
+                <p>&#11088;&#11088;&#11088;&#11088;&#11088;</p>
+                {% elif rev.stars == 4 %}
+                <p>&#11088;&#11088;&#11088;&#11088;</p>
+                {% elif rev.stars == 3 %}
+                <p>&#11088;&#11088;&#11088;</p>
+                {% elif rev.stars == 2 %}
+                <p>&#11088;&#11088;</p>
+                {% else %}
+                <p>&#11088;</p>
+                {% endif %}
+              </td>
+              <td>
+                <p>{{rev.review}}</p>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+          {% endif %}
       </div>
     </section>
     <!--./Individual Bakery Section Ends-->

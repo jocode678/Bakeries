@@ -107,8 +107,9 @@ def add_new_bakery():
                               fish_shell=fish_shell, kosher=kosher, halal=halal)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
+            reviews = service.get_reviews_for_bakery_ref(10000000)
             # I changed this below to navigate to the newly created individual bakery page
-            return render_template('individual_bakery.html', bakery=bakery, address=address_new, message=error)
+            return render_template('individual_bakery.html', bakery=bakery, address=address_new, review=reviews, message=error)
     return render_template('new_bakery_form.html', form=form, message=error)
 
 
