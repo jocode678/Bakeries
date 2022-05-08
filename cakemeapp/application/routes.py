@@ -111,10 +111,9 @@ def add_new_bakery():
     return render_template('new_bakery_form.html', form=form, message=error)
 
 
-<<<<<<< HEAD
 # app config
 app.config["IMAGE_UPLOADS"] = "/Users/getintotech/Documents/Bakeries/cakemeapp/application/static/images/bakeries"
-app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
+# app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 
 
 def allowed_image(filename):
@@ -122,10 +121,10 @@ def allowed_image(filename):
         return False
     ext = filename.rsplit(".", 1)[1]
 
-    if ext.uppercase in app.config["Allowed_IMAGE_EXTENSIONS"]:
-        return True
-    else:
-        return False
+  #  if ext.uppercase in app.config["Allowed_IMAGE_EXTENSIONS"]:
+   #     return True
+    #else:
+     #   return False
 
 
 # route to upload files
@@ -135,14 +134,15 @@ def upload_image():
     if request.method == "POST":
         if request.files:
             image = request.files["image"]
+            print(image)
 
             if image.filename == "":
                 print("Please name your image file")
                 return redirect(request.url)
 
-            if not allowed_image(image.filename):
-                print("That image extension is not allowed")
-                return redirect(request.url)
+     #       if not allowed_image(image.filename):
+      #          print("That image extension is not allowed")
+      #          return redirect(request.url)
             else:
                 filename = secure_filename(image.filename)
                 image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
@@ -150,7 +150,6 @@ def upload_image():
                 return redirect(request.url)
     return render_template('upload_images.html')
 
-=======
 
 @app.route('/add_review', methods=['GET','POST'])
 def add_review():
@@ -177,29 +176,3 @@ def add_review():
             return render_template('individual_bakery.html', bakery=bakery, address=address, review=reviews, message=error)
     return render_template('add_review.html', form=form, message=error)
 
-
->>>>>>> 825c6b54fc23774b44e1d9b390f3584fb5682d3c
-# @app.route('/new_customer_member', methods=['GET', 'POST'])
-# def add_new_customer_member():
-#     error = ""
-#     form = CustomerSignUpForm()
-#
-#     if request.method == 'POST':
-#         form = CustomerSignUpForm(request.form)
-#         print(form.username.data)
-#         username = form.username.data
-#         user_password = form.user_password.data
-#         first_name = form.first_name.data
-#         last_name = form.last_name.data
-#         email = form.email.data
-#         postcode = form.postcode.data
-#
-#         if len(username) == 0 or len(user_password) == 0 or len(first_name) == 0 or len(last_name) == 0 or len(
-#                     email) == 0 or len(postcode) == 0:
-#             error = "Please supply all information"
-#         else:
-#             customer_member = CustomerMember(username=username, user_password=user_password, first_name=first_name, last_name=last_name, email=email, postcode=postcode)
-#             service.add_new_customer(customer_member)
-#             return render_template('aboutus.html', customer_member=customer_member, message=error)
-#
-#         return render_template('new_customer_form.html', form=form, message=error)

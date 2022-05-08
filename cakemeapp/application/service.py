@@ -62,6 +62,7 @@ def get_customer_by_id(customer_id):
     else:
         return None
 
+
 def get_address_by_id(bakery_id):
     if bakery_id is True:
         return bakeries.query.get(Bakeries.bakery_address)
@@ -106,11 +107,11 @@ def add_new_customer(customer_member):
     db.session.commit()
 
 
-<<<<<<< HEAD
 def add_new_image(upload_images):
     db.session.add(upload_images)
     db.session.commit()
-=======
+
+
 def get_all_reviews():
     return Reviews.query.all()
 
@@ -119,4 +120,4 @@ def get_reviews_for_bakery_ref(bakery_id):
     reviews_by_id = Reviews.query.filter_by(bakery_ref=bakery_id).all()
     return reviews_by_id
 
->>>>>>> 825c6b54fc23774b44e1d9b390f3584fb5682d3c
+
