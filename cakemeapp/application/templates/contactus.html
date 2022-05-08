@@ -1,30 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <!--Styles/CSS-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
-    <title>Contact Us</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!--Styles/CSS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+  <title>About Us</title>
   </head>
-
   <body class="bg">
-    <!--Container-->
     <!--Container-->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
@@ -70,17 +59,29 @@
       <div class="contact-us-section">
         <div class="contact-us-info">
           <img
-            class="contact-us-front-image"
-            src="/cakemeapp/application/static/images/contact-us-front-image.jpeg"
+            class="contact-us-small-image"
+            src="/static/images/contact-us-small-image.jpeg"
             alt="Colourful Cake"
           />
           <h1>Contact Us</h1>
+          <div>
           <p>Make sure you follow us on our socials!</p>
-          <p>We regularly post our latest recomendations on the best new bakery spots- we wouldn't want you to miss out! Happy cake eating!</p>
+          </div class="contact-us-para-1">
+          <div class="contact-us-para-2">
+          <p>We regularly post our latest recomendations on the best new bakery spots,</p>
+          <p>we wouldn't want you to miss out!</p>
+          </div>
+          <p class="contact-us-para-3"><strong><i>Happy cake eating!<i></strong></p>
           <!--Socials, phone, email form here -->
-          <div class="social-icons">
-            <img src="/static/images/icons8-instagram.gif" />
-            <img src="/static/images/twitter-logo.gif" />
+          <div class="social-icons-container">
+            <div class="social-icon-1">
+              <img class="insta-image" src="/static/images/icons8-instagram.gif" />
+              <span class="social-caption-1">@CakeMe</span>
+            </div>
+            <div class="social-icon-2">
+              <img class="twitter-image" src="/static/images/twitter-logo.gif" />
+              <span class="social-caption-2">@CakeMe</span>
+            </div>
           </div>
         </div>
       </div>
@@ -103,10 +104,9 @@
     -->
     <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
     <footer class="footer navbar-fixed-bottom">
-    <p class="footer-text">
-      Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena
-      and Jo!
-    </p>
-    <p class="footer-copy"><span class="emphasised">&copy;2022</p></span>
+      <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!
+      </p>
+      <p class="footer-copy">&copy; 2022</p>
+    </footer>
   </body>
 </html>
