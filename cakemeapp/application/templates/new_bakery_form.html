@@ -26,36 +26,29 @@
             alt="CAKE ME!"
           />
           <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home"
-                  >Home</a
-                >
-              </li>
-              <img src="" />
-              <!--Logo-->
-              <li class="nav-item">
-                <a class="nav-link" href="/aboutus">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/bakeries">Bakeries</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contactus">Contact Us</a>
-              </li>
-            </ul>
+            <div class="menu-container">
+              <ul class="menu navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                </li>
+                <img src="" />
+                <!--Logo-->
+                <li class="nav-item">
+                  <a class="nav-link" href="/aboutus">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/bakeries">Bakeries</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contactus">Contact Us</a>
+                </li>
+              </ul>
+            </div>
             <form class="d-flex">
               <input
                 class="form-control me-2"
@@ -63,14 +56,24 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-info" type="submit">Search</button>
+              <button class="btn btn-outline-info" type="submit">
+                Search
+              </button>
             </form>
           </div>
         </div>
       </nav>
     </div>
+    <!--./End of Nav container-->
+    <!--End of Search Box-->
+
+  </div>
+  <!--./End of container-->
+  
     <div class="new-bakery-form-container">
+      
       <form method="POST" action="">
+        <h2 style="margin-left: 0;">New Bakery Form</h2>
         <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
         {{ form.csrf_token }}
         <div class="form-border">
@@ -187,112 +190,113 @@
           <h3>Please enter dietary information for your bakery</h3>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.gluten.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.gluten(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.dairy_lactose.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.dairy_lactose(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.vegetarian.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.vegetarian(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.vegan.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.vegan(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.peanut.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.peanut(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.soy.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.soy(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.eggs.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.eggs(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.fish_shell.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.fish_shell(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.kosher.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.kosher(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="mb-3">
-              <div class="col-md-2">
+              <div class="col">
                 {{ form.halal.label (class_="form-label") }}
               </div>
-              <div class="col-md-10">
+              <div class="col-md-2">
                 {{ form.halal(class_="form-control", size =32) }}
               </div>
             </div>
           </div>
-          <div class="row">
+          
+        </div>
+        <div class="row">
             <div class="mb-3">
               <div class="col-md-2">
                 {{ form.submit(class_="btn button mb-3") }}
               </div>
             </div>
           </div>
-        </div>
         {{ message }}
       </form>
     </div>
