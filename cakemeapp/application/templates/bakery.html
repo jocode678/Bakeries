@@ -5,7 +5,8 @@
 
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnLUC4dz0N4gBIWxRmB3Xwds7drOxKc-8&callback=bakeriesMap&v=weekly"
-      type="text/javascript" defer
+      type="text/javascript"
+      defer
     ></script>
     <script src="/assets/gmap3.js?body=1" type="text/javascript"></script>
 
@@ -21,41 +22,54 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/static/styles.css" />
     <title>Bakery Page</title>
-
   </head>
 
   <body class="bg">
-    <!--Overlay-->
-    <div class="overlay"></div>
     <!--Container-->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
+        <div class="container-fluid nav-bg">
           <h1>Cake Me!</h1>
           <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/home"
+                  >Home</a
+                >
               </li>
-              <img src="">
+              <img src="" />
               <!--Logo-->
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="/aboutus">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Search Bakeries</a>
+                <a class="nav-link" href="/bakeries">Bakeries</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="/contactus">Contact Us</a>
               </li>
             </ul>
+<<<<<<< HEAD
           </div>
         </div>
       </nav>
@@ -65,6 +79,22 @@
         type="search" placeholder="Search" name="q">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+=======
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+>>>>>>> 7bd296571b4912b4f203425088caff278a7eafda
     </div>
     <!--./End of container-->
 
@@ -72,56 +102,62 @@
     <!--Bakery seach cards show here-->
     <div class="bakeries-main-container">
       <div class="individual-bakery">
-                    <div id="map"></div>
+        <div id="map" style="margin-top: 30px; margin-bottom: 30px"></div>
+      </div>
 
-        </div>
-
-<!--Bakery seach cards show here-->
+      <!--Bakery seach cards show here-->
       <div class="bakeries-display-box">
-        <div class="container">
-  <div class="row">
-    <div class="col">
-      <h2>Bakery</h2>
-      {% for bakery in bakeries %}
-        <p>{{bakery.shop_name}}</p>
-      {% endfor %}
+        <table class="bakeries-table">
+          <tr>
+            <th>
+              <h2 class="h2-black">Bakery</h2>
+            </th>
+            <th>
+              <h2 class="h2-black">Opening Times</h2>
+            </th>
+            <th>
+              <h2 class="h2-black">Address</h2>
+            </th>
+          </tr>
+          {% for bakery in bakeries %}
+          <tr>
+            <td>
+              <p>{{bakery.shop_name}}</p>
+            </td>
+            <td>
+              <p>{{bakery.opening_times}}</p>
+            </td>
+            <td>
+              <p>
+                {% for address in addresses %} {% if address.id == bakery.id %}
+                {{ address.house_number}} {{address.street }} {{address.town}}
+                {{address.postcode}} {% endif %} {% endfor %}
+              </p>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <br />
+      {{ message }}
     </div>
-    <div class="col">
-      <h2>Opening Times</h2>
-      {% for bakery in bakeries %}
-        <p>{{bakery.opening_times}}</p>
-      {% endfor %}
-    </div>
-    <div class="col">
-      <h2>Address</h2>
-      {% for address in addresses %}
-        <p>{{ address.house_number}} {{address.street }} {{address.town}} {{address.postcode}}</p>
-      {% endfor %}
-    </div>
-
-  </div>
-</div>
-
-
-
-
-
-
-
-          <br />
-          {{ message }}
-        </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
 
-  <footer class="footer fixed-bottom">
-    <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!
-    </p>
-    <p class="footer-copy">&copy; 2022</p>
-  </footer>
+    <footer class="footer navbar-fixed-bottom">
+      <p class="footer-text">
+        Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena
+        and Jo!
+      </p>
+      <p class="footer-copy">&copy; 2022</p>
+    </footer>
   </body>
 </html>

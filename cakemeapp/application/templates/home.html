@@ -15,42 +15,56 @@
 </head>
 
 <body class="bg">
-    <!--Overlay-->
-    <div class="overlay"></div>
-    <!--Nav Container-->
+    <!--Container-->
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <!-- <h1>Cake Me!</h1> -->
-                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <!--Logo-->
-                            <!-- <img class="homepage-logo" src="/cakemeapp/application/static/images/bakery-logo.jpeg" alt="bakery-logo">  -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Search Bakeries</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid nav-bg">
+          <h1>Cake Me!</h1>
+          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home"
+                  >Home</a
+                >
+              </li>
+              <img src="" />
+              <!--Logo-->
+              <li class="nav-item">
+                <a class="nav-link" href="/aboutus">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/bakeries">Bakeries</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contactus">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
     </div>
     <!--./End of Nav container-->
     <!--Home Main Container-->
@@ -82,7 +96,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
     <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
-    <footer class="footer fixed-bottom" >
+    <footer class="footer navbar-fixed-bottom" >
     <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!</p>
     <p class="footer-copy"><span class="emphasised">&copy;2022</p></span>
     </footer>
