@@ -8,66 +8,60 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/cakemeapp/application/static/styles.css" />
+  <link rel="stylesheet" href="/static/styles.css" />
   <title>About Us</title>
 </head>
 
 <body class="bg">
-  <!--Overlay-->
-  <div class="overlay"></div>
-  <!--Container-->
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <h1>Cake Me!</h1>
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <img src="">
-            <!--Logo-->
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Search Bakeries</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
-            </li>
-          </ul>
+    <!--Container-->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid nav-bg">
+          <h1>Cake Me!</h1>
+          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="menu-container">
+              <ul class="menu navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                </li>
+                <img src="" />
+                <!--Logo-->
+                <li class="nav-item">
+                  <a class="nav-link" href="/aboutus">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/bakeries">Bakeries</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contactus">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    </nav>
-    <!--Search Box-->
-    <div>
-      <div>
-        <div class="form-container">
-          <form class="form">
-            <input id="search" type="text" class="input" placeholder="Search bakeries...">
-            <button id="clear" class="clear-results">x</button>
-          </form>
-        </div>
-        <div class="results-container">
-          <ul class="results-list" id="list"></ul>
-        </div>
-      </div>
+      </nav>
     </div>
+    <!--./End of Nav container-->
     <!--End of Search Box-->
 
   </div>
   <!--./End of container-->
   <!--About Us Main Container-->
-  <section clas="about-us-main-container">
+  <section class="about-us-main-container">
     <div class="about-us">
       <div class="about-us-info">
-        <img class="about-us-image" src="/cakemeapp/application/static/images/AboutUsImage.jpeg" alt="Birthday cake">
+        <img class="about-us-image" src="/static/images/AboutUsImage.jpeg" alt="Birthday cake">
       <h2>About Us</h2>
       <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
       eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
@@ -79,51 +73,64 @@
       veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
       autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem
       eum fugiat quo voluptas nulla pariatur?"</p>
+
       </div>
     </div>
   </section>
   <!-- <div>
-    <p>Testing</p>
-    <p>{{bakery.shop_name}} {{bakery.address_ref}} {{bakery.opening_times}}</p>
-    <br>
-    {{ message }}
-  
+
   </div> -->
-  <!--./About Us Container Ends-->
 
-  <!-- <div>
-      <table class="table table-striped">
-        <th>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Bakery</th>
-            <th scope="col">Address</th>
-            <th scope="col">Opening Times</th>
-          </tr>
-        </th>
-        <tbody>
-          <p>Insert map of bakeries in this page</p>
-          {% for bakery in bakeries %}
-          <tr>
-            <th scope="row">{{bakery.id}}</th>
-            <td>{{bakery.shop_name}}</td>
-            <td>{{bakery.address_ref}}</td>
-            <td>{{bakery.opening_times}}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <br />
-      {{ message }}
-    </div> -->
+<!--About The Founder Section-->
+  <section class="about-us">
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>About the Founders</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <img class="founders-image" src="/static/images/jo_photo.jpg" alt="Jo and chocolate cake">
+            <h3>Jo Daniell</h3>
+            <p>I love everything chocolate as you can see in my photo. I am gluten free and would love to have a website where I can easily search for local bakeries which cater to gluten free!</p>
+          </div>
+          <div class="col">
+            <img class="founders-image" src="/static/images/elena_photo.jpg" alt="Elena and ice cream">
+            <h3>Elena Baggio</h3>
+            <p>One of my favourite words is "dessert", and I was not ready to give that up when I went vegan. Having a website that shows me all the best, plant-based places where I can satisfy my food cravings is so helpful! </p>
+          </div>
+          <div class="col">
+            <img class="founders-image" src="/static/images/lien_photo.jpeg" alt="Lien with her overpriced dessert">
+            <h3>Lien Nguyen</h3>
+            <p>I'm all about home-baked cakes and cookies when it comes to birthdays. Exploring new recipes to cater for my gluten-free and vegan friends has been made much easier with the inspiration of my local bakeries.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <img class="founders-image" src="/static/images/bushra_photo.jpg" alt="Bushra with her pink hair">
+            <h3>Bushra Akhtar</h3>
+            <p>I have a very sweet tooth and love finding new and exciting treats. This app is great for finding my new fave bakeries and desserts to try out! 😋</p>
+          </div>
+          <div class="col">
+            <img class="founders-image" src="/static/images/emma_photo.jpeg" alt="Emma drinking coffee after eating a cake!">
+            <h3>Emma Smedley</h3>
+            <p>I have always had a sweet tooth and a particular love for cakes. I have a brazil nut allergy and so it's great for me to know that bakeries will have nut freee options on the menu. I tried to find a pic with me enjoying a cake, but i usually polish them off before anyone has a chance, so heres a pic of me with a coffee in a cake shop instead! ;)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 
   <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
-  <footer class="footer fixed-bottom">
+  <footer class="footer navbar-fixed-bottom">
     <p class="footer-text">Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena and Jo!
     </p>
     <p class="footer-copy">&copy; 2022</p>

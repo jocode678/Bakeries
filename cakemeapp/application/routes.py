@@ -1,7 +1,7 @@
 from flask import render_template, request, jsonify
-
+from pymysql import connect
 from application import app, service
-from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm
+from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm, AddReviews
 from application.domain.bakeries import Bakeries
 from application.domain.address import Address
 from application.domain.dietary import Dietary
@@ -35,9 +35,11 @@ def contact_us():
 def show_bakeries():
     error = ""
     bakeries = service.get_all_bakeries()
+    # We need all addresses for all bakeries
+    addresses = service.get_all_addresses()
     if len(bakeries) == 0:
         error = "There are no bakeries to display"
-    return render_template('bakery.html', bakeries=bakeries, message=error)
+    return render_template('bakery.html', bakeries=bakeries, addresses=addresses, message=error)
 
 
 @app.route('/bakery/<int:bakery_id>', methods=['GET'])
@@ -45,9 +47,10 @@ def show_bakery(bakery_id):
     error = ""
     bakery = service.get_bakery_by_id(bakery_id)
     address = service.get_address_for_bakery(bakery_id)
+    reviews = service.get_reviews_for_bakery_ref(bakery_id)
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
-    return render_template('individual_bakery.html', bakery=bakery, address=address, message=error)
+    return render_template('individual_bakery.html', bakery=bakery, address=address, review=reviews, message=error)
 
 
 @app.route('/myprofile/<int:customer_id>', methods=['GET'])
@@ -102,6 +105,34 @@ def add_new_bakery():
             # I changed this below to navigate to the newly created individual bakery page
             return render_template('individual_bakery.html', bakery=bakery, address=address_new, message=error)
     return render_template('new_bakery_form.html', form=form, message=error)
+
+
+
+@app.route('/add_review', methods=['GET','POST'])
+def add_review():
+    error = ""
+    form = AddReviews()
+
+    if request.method == 'POST':
+        form = AddReviews(request.form)
+        stars = form.stars.data
+        review = form.review.data
+        bakery_ref = form.bakery_ref.data
+
+        if len(review) == 0 or len(bakery_ref) == 0:
+            error = "Please fill in all fields with a *"
+        else:
+            review = Reviews(stars=stars, review=review, bakery_ref=bakery_ref)
+            service.add_new_review(review)
+            # Converting bakery_ref to bakery_id in order to pass into the function to get the address
+            bakery_id = int(bakery_ref)
+            bakery = service.get_bakery_by_id(bakery_id)
+            reviews = service.get_all_reviews()
+
+            address = service.get_address_for_bakery(bakery_id)
+            return render_template('individual_bakery.html', bakery=bakery, address=address, review=reviews, message=error)
+    return render_template('add_review.html', form=form, message=error)
+
 
 # @app.route('/new_customer_member', methods=['GET', 'POST'])
 # def add_new_customer_member():

@@ -1,7 +1,9 @@
 from application import db
+from dataclasses import dataclass
 
 # ORM - Object relational mapping - mapping class to a table
 # DTO - data transfer object
+@dataclass
 class Address(db.Model):
     id: int
     house_number: str
@@ -17,5 +19,5 @@ class Address(db.Model):
     town = db.Column(db.String(20), nullable=True)
     postcode = db.Column(db.String(10), nullable=False)
     country = db.Column(db.String(20), nullable=True)
-    bakeries_address = db.relationship('Bakeries', backref='bakeries_address')
+    bakeries_address = db.relationship("Bakeries", backref="bakeries_address")
 
