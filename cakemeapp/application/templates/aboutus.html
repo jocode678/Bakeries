@@ -31,7 +31,11 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid nav-bg">
-          <h1>Cake Me!</h1>
+          <img
+            class="menu-logo"
+            src="/static/images/mini-logo.png"
+            alt="CAKE ME!"
+          />
           <!-- <a class="navbar-brand" href="#">Navbar</a> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,8 +61,13 @@
               </ul>
             </div>
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-info" type="submit">
                 Search
               </button>
             </form>
@@ -97,40 +106,52 @@
 
 <!--About The Founder Section-->
   <section class="about-us">
-    <div>
+    <div class="about-us-text">
       <div class="container">
         <div class="row">
           <div class="col">
             <h2>About the Founders</h2>
           </div>
         </div>
+        <div class="about-us-container">
         <div class="row">
-          <div class="col">
-            <img class="founders-image" src="/static/images/jo_photo.jpg" alt="Jo and chocolate cake">
+          <div class="col-md-6">
             <h3>Jo Daniell</h3>
             <p>I love everything chocolate as you can see in my photo. I am gluten free and would love to have a website where I can easily search for local bakeries which cater to gluten free!</p>
+            </div><div class="col-md-6">
+              <img class="founders-image" src="/static/images/jo_photo.jpg" alt="Jo and chocolate cake">
+          </div></div>
+          <div class="row">
+            <div class="col-md-6"><img class="founders-image" src="/static/images/elena_photo.jpg" alt="Elena and ice cream">
           </div>
-          <div class="col">
-            <img class="founders-image" src="/static/images/elena_photo.jpg" alt="Elena and ice cream">
+          <div class="col-md-6">
             <h3>Elena Baggio</h3>
             <p>One of my favourite words is "dessert", and I was not ready to give that up when I went vegan. Having a website that shows me all the best, plant-based places where I can satisfy my food cravings is so helpful! </p>
-          </div>
-          <div class="col">
-            <img class="founders-image" src="/static/images/lien_photo.jpeg" alt="Lien with her overpriced dessert">
+            </div></div>
+          <div class="row">
+          <div class="col-md-6">
+          
             <h3>Lien Nguyen</h3>
             <p>I'm all about home-baked cakes and cookies when it comes to birthdays. Exploring new recipes to cater for my gluten-free and vegan friends has been made much easier with the inspiration of my local bakeries.</p>
+           </div><div class="col-md-6"> <img class="founders-image" src="/static/images/lien_photo.jpeg" alt="Lien with her overpriced dessert">
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <img class="founders-image" src="/static/images/bushra_photo.jpg" alt="Bushra with her pink hair">
+       </div>
+          <div class="row">
+            <div class="col-md-6"><img class="founders-image" src="/static/images/bushra_photo.jpg" alt="Bushra with her pink hair">
+          </div>
+          <div class="col-md-6">
             <h3>Bushra Akhtar</h3>
-            <p>I have a very sweet tooth and love finding new and exciting treats. This app is great for finding my new fave bakeries and desserts to try out! 😋</p>
+            <p>I have a very sweet tooth and love finding new and exciting treats. This app is great for finding my new fave bakeries and desserts to try out!</p>
+            </div>
           </div>
-          <div class="col">
-            <img class="founders-image" src="/static/images/emma_photo.jpeg" alt="Emma drinking coffee after eating a cake!">
-            <h3>Emma Smedley</h3>
-            <p>I have always had a sweet tooth and a particular love for cakes. I have a brazil nut allergy and so it's great for me to know that bakeries will have nut freee options on the menu. I tried to find a pic with me enjoying a cake, but i usually polish them off before anyone has a chance, so heres a pic of me with a coffee in a cake shop instead! ;)</p>
+          <div class="row">
+          <div class="col-md-6">
+            <h3>Name</h3>
+            <p>About you</p>
+            </div>
+            <div class="col-md-6">
+            <img class="founders-image" src="/static/images/AboutUsImage.jpeg" alt="Describe image">
+          </div>
           </div>
         </div>
       </div>

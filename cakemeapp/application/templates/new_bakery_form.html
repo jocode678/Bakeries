@@ -20,7 +20,11 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid nav-bg">
-          <h1>Cake Me!</h1>
+          <img
+            class="menu-logo"
+            src="/static/images/mini-logo.png"
+            alt="CAKE ME!"
+          />
           <!-- <a class="navbar-brand" href="#">Navbar</a> -->
           <button
             class="navbar-toggler"
@@ -59,227 +63,245 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
+              <button class="btn btn-outline-info" type="submit">Search</button>
             </form>
           </div>
         </div>
       </nav>
     </div>
-    <div class="container-sm" style="width: 50%">
+    <div class="new-bakery-form-container">
       <form method="POST" action="">
         <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
         {{ form.csrf_token }}
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.shop_name.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.shop_name (class_="form-control", size =32)}}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.house_number.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.house_number(class_="form-control", size =32)}}
+        <div class="form-border">
+          <h3>Please enter your bakery name</h3>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.shop_name.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.shop_name (class_="form-control", size =32)}}
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.street.label (class_="form-label") }}
+        <div class="form-border">
+          <h3>Please enter your bakery address</h3>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.house_number.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.house_number(class_="form-control", size =32)}}
+              </div>
             </div>
-            <div class="col-md-10">
-              {{ form.street(class_="form-control", size =32)}}
+          </div>
+
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.street.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.street(class_="form-control", size =32)}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.town.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.town(class_="form-control", size =32)}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.postcode.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.postcode(class_="form-control", size =32)}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.country.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.country(class_="form-control", size =32)}}
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.town.label (class_="form-label") }}
+        <div class="form-border">
+          <h3>Please enter your bakery opening times and contact details</h3>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.opening_times.label(class_="form-label")}}
+              </div>
+              <div class="col-md-10">
+                {{ form.opening_times(class_="form-control", size =32)}}
+              </div>
             </div>
-            <div class="col-md-10">
-              {{ form.town(class_="form-control", size =32)}}
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.phone.label (class_="form-label")}}
+              </div>
+              <div class="col-md-10">
+                {{ form.phone (class_="form-control", size =32) }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.website.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.website(class_="form-control", size =32) }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.social_media.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.social_media(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.postcode.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.postcode(class_="form-control", size =32)}}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.country.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.country(class_="form-control", size =32)}}
+        <div class="form-border">
+          <h3>Please enter dietary information for your bakery</h3>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.gluten.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.gluten(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.opening_times.label(class_="form-label")}}
-            </div>
-            <div class="col-md-10">
-              {{ form.opening_times(class_="form-control", size =32)}}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.phone.label (class_="form-label")}}
-            </div>
-            <div class="col-md-10">
-              {{ form.phone (class_="form-control", size =32) }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.dairy_lactose.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.dairy_lactose(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.website.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.website(class_="form-control", size =32) }}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.social_media.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.social_media(class_="form-control", size =32) }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.vegetarian.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.vegetarian(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.gluten.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.gluten(class_="form-control", size =32) }}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.dairy_lactose.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.dairy_lactose(class_="form-control", size =32) }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.vegan.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.vegan(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.vegetarian.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.vegetarian(class_="form-control", size =32) }}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.vegan.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.vegan(class_="form-control", size =32) }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.peanut.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.peanut(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.peanut.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.peanut(class_="form-control", size =32) }}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.soy.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.soy(class_="form-control", size =32) }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.soy.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.soy(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.eggs.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.eggs(class_="form-control", size =32) }}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.fish_shell.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.fish_shell(class_="form-control", size =32) }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.eggs.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.eggs(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.kosher.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.kosher(class_="form-control", size =32) }}
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.halal.label (class_="form-label") }}
-            </div>
-            <div class="col-md-10">
-              {{ form.halal(class_="form-control", size =32) }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.fish_shell.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.fish_shell(class_="form-control", size =32) }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="mb-3">
-            <div class="col-md-2">
-              {{ form.submit(class_="btn btn-primary mb-3") }}
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.kosher.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.kosher(class_="form-control", size =32) }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.halal.label (class_="form-label") }}
+              </div>
+              <div class="col-md-10">
+                {{ form.halal(class_="form-control", size =32) }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <div class="col-md-2">
+                {{ form.submit(class_="btn button mb-3") }}
+              </div>
             </div>
           </div>
         </div>
         {{ message }}
       </form>
     </div>
+    <footer class="footer">
+      <p class="footer-text">
+        Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena
+        and Jo!
+      </p>
+      <p class="footer-copy">&copy; 2022</p>
+    </footer>
   </body>
 </html>

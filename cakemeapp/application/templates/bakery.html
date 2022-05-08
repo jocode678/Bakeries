@@ -37,7 +37,11 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid nav-bg">
-          <h1>Cake Me!</h1>
+          <img
+            class="menu-logo"
+            src="/static/images/mini-logo.png"
+            alt="CAKE ME!"
+          />
           <!-- <a class="navbar-brand" href="#">Navbar</a> -->
           <button
             class="navbar-toggler"
@@ -100,9 +104,7 @@
                 </div>
                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                  <button class="btn btn-outline-success" type="submit">
-                    Search
-                  </button>
+                  <button class="btn btn-outline-info" type="submit">Search</button>
                 </form>
               </div>
             </div>
@@ -119,7 +121,7 @@
       </div>
 
       <!--Bakery seach cards show here-->
-      <div class="bakeries-display-box">
+      <div class="bakeries-display-box" style="margin-bottom: 0">
         <table class="bakeries-table">
           <tr>
             <th>
@@ -150,9 +152,18 @@
           </tr>
           {% endfor %}
         </table>
+        <br />
+      </div>
+      <div
+        class="bakery-form-link"
+        style="padding-bottom: 10px; padding-top: 0px; margin-top: 0px"
+      >
+        <p style="font-size: 100; margin-bottom: 5px">
+          If you would like to add your bakery to our site please fill in the
+          form on this <a href="http://127.0.0.1:5000/new_bakery">page.</a>
+        </p>
       </div>
 
-      <br />
       {{ message }}
     </div>
 
@@ -165,7 +176,7 @@
 
     <script src="{{url_for('static', filename='/js/bakery_search.js')}}"></script>
 
-    <footer class="footer navbar-fixed-bottom">
+    <footer class="footer">
       <p class="footer-text">
         Built with Python, designed with Bootstrap. By Bushra, Lien, Emma, Elena
         and Jo!

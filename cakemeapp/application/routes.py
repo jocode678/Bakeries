@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for
 from pymysql import connect
 from werkzeug.utils import redirect, secure_filename
 import os
@@ -12,7 +12,7 @@ from application.domain.customer_member import CustomerMember
 from application.domain.administrator import Administrator
 from application.domain.bakery_owner import BakeryOwner
 from application.domain.reviews import Reviews
-from application import db
+##app = Flask(__name__, static_folder='static')
 
 
 @app.route('/home')
@@ -43,6 +43,8 @@ def show_bakeries():
         error = "There are no bakeries to display"
     return render_template('bakery.html', bakeries=bakeries, addresses=addresses, message=error)
 
+##app.config["IMAGE_RETRIEVAL"] = "/Users/getintotech/Documents/Bakeries/cakemeapp/application/static/images/bakeries"
+
 
 @app.route('/bakery/<int:bakery_id>', methods=['GET'])
 def show_bakery(bakery_id):
@@ -50,9 +52,14 @@ def show_bakery(bakery_id):
     bakery = service.get_bakery_by_id(bakery_id)
     address = service.get_address_for_bakery(bakery_id)
     reviews = service.get_reviews_for_bakery_ref(bakery_id)
+    ##filename = bakery.shop_name
+    ##image_file = request.files["image"]
+    ##image_file.save(os.path.join(app.config["IMAGE_RETRIEVAL"], filename))
+    path = bakery.image
+    print(path)
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)
-    return render_template('individual_bakery.html', bakery=bakery, address=address, review=reviews, message=error)
+    return render_template('individual_bakery.html', bakery=bakery, address=address, image_file=path, review=reviews, message=error)
 
 
 @app.route('/myprofile/<int:customer_id>', methods=['GET'])
