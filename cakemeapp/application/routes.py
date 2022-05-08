@@ -1,5 +1,7 @@
 from flask import render_template, request, jsonify
 from pymysql import connect
+from werkzeug.utils import redirect, secure_filename
+import os
 from application import app, service
 from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm, AddReviews
 from application.domain.bakeries import Bakeries
@@ -91,15 +93,18 @@ def add_new_bakery():
         kosher = form.kosher.data
         halal = form.halal.data
 
-        if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(social_media) == 0:
+        if len(shop_name) == 0 or len(opening_times) == 0 or len(phone) == 0 or len(website) == 0 or len(
+                social_media) == 0:
             error = "Please fill in all fields with a *"
         else:
-            address_new = Address(house_number=house_number, street=street,
-                                  town=town, postcode=postcode, country=country)
+            address_new = Address(house_number=house_number, street=street, town=town, postcode=postcode,
+                                  country=country)
             service.add_new_address(address_new)
             new_address_id = service.get_address_id_4()
-            bakery = Bakeries(shop_name=shop_name, address_ref=new_address_id, opening_times=opening_times, phone=phone, website=website, social_media=social_media, gluten=gluten,
-                              dairy_lactose=dairy_lactose, vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs, fish_shell=fish_shell, kosher=kosher, halal=halal)
+            bakery = Bakeries(shop_name=shop_name, address_ref=new_address_id, opening_times=opening_times, phone=phone,
+                              website=website, social_media=social_media, gluten=gluten, dairy_lactose=dairy_lactose,
+                              vegetarian=vegetarian, vegan=vegan, peanut=peanut, soy=soy, eggs=eggs,
+                              fish_shell=fish_shell, kosher=kosher, halal=halal)
             service.add_new_bakery(bakery)
             bakeries = service.get_all_bakeries()
             # I changed this below to navigate to the newly created individual bakery page
@@ -107,8 +112,47 @@ def add_new_bakery():
     return render_template('new_bakery_form.html', form=form, message=error)
 
 
+# app config
+app.config["IMAGE_UPLOADS"] = "/Users/getintotech/Documents/Bakeries/cakemeapp/application/static/images/bakeries"
+# app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 
-@app.route('/add_review', methods=['GET','POST'])
+
+def allowed_image(filename):
+    if not "." in filename:
+        return False
+    ext = filename.rsplit(".", 1)[1]
+
+  #  if ext.uppercase in app.config["Allowed_IMAGE_EXTENSIONS"]:
+   #     return True
+    # else:
+    #   return False
+
+
+# route to upload files
+@app.route('/upload_images', methods=['GET', 'POST'])
+def upload_image():
+    form = BakeryOwnerForm()
+    if request.method == "POST":
+        if request.files:
+            image = request.files["image"]
+            print(image)
+
+            if image.filename == "":
+                print("Please name your image file")
+                return redirect(request.url)
+
+     #       if not allowed_image(image.filename):
+      #          print("That image extension is not allowed")
+      #          return redirect(request.url)
+            else:
+                filename = secure_filename(image.filename)
+                image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+                print("image has been saved!")
+                return redirect(request.url)
+    return render_template('upload_images.html')
+
+
+@app.route('/add_review', methods=['GET', 'POST'])
 def add_review():
     error = ""
     form = AddReviews()
