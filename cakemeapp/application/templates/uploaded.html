@@ -9,8 +9,20 @@
 <body>
     <h1>{{ title }} Page</h1>
 {% block body_content %}
-    <div class = "container">
-        <h2> Thank you. Your image has been uploaded! </h2>
+    <div class = "container"
+    style="margin-bottom: 0">
+        <div class="row">
+            <div class="col" style="justify-content: center; text-align: center">
+          <h1>Thank you, your image has been saved!</h1>
+          <hr />
+          <img
+            class="contact-us-front-image"
+            src="/static/images/contact-us-front-image.jpeg"
+            alt="Colourful Cake"
+          />
+          <br />
+            </div>
+        </div>
     </div>
     {% endblock %}
 <hr>

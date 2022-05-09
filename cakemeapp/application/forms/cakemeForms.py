@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 
 from application import app, service
 
-from wtforms import StringField, SubmitField, SelectField, IntegerField, validators, Form, BooleanField, PasswordField, TextAreaField, RadioField
+from wtforms import StringField, SubmitField, SelectField, IntegerField, validators, Form, BooleanField, PasswordField, TextAreaField, RadioField, FileField
 from wtforms.validators import InputRequired, Length
 
 
@@ -30,7 +30,6 @@ class BakeryOwnerForm(FlaskForm):
     fish_shell = RadioField('Fish and Shellfish Free', choices=[("Yes"), ("No")], default="No")
     kosher = RadioField('Kosher', choices=[("Yes"), ("No")], default="No")
     halal = RadioField('Halal', choices=[("Yes"), ("No")], default="No")
-    # image =  -> how do you upload?
     submit = SubmitField('Add Bakery')
 
 
@@ -39,6 +38,13 @@ class AddReviews(FlaskForm):
     review = StringField('Please tell us more:')
     bakery_ref = StringField('Please enter the bakery ID')
     submit = SubmitField('Add Review')
+
+
+class UploadImages(FlaskForm):
+    image_upload = FileField('Please upload your image')
+    bakery_ref = StringField('Please enter the bakery ID')
+    submit = SubmitField('Upload image')
+
 
 
 class CustomerSignUpForm(FlaskForm):

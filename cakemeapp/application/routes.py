@@ -3,7 +3,7 @@ from pymysql import connect
 from werkzeug.utils import redirect, secure_filename
 import os
 from application import app, service
-from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm, AddReviews
+from application.forms.cakemeForms import BakeryOwnerForm, CustomerSignUpForm, AddReviews, UploadImages
 from application.domain.bakeries import Bakeries
 from application.domain.address import Address
 from application.domain.dietary import Dietary
@@ -130,34 +130,33 @@ def allowed_image(filename):
         return False
     ext = filename.rsplit(".", 1)[1]
 
-  #  if ext.uppercase in app.config["Allowed_IMAGE_EXTENSIONS"]:
+# if ext.uppercase in app.config["Allowed_IMAGE_EXTENSIONS"]:
    #     return True
     # else:
     #   return False
 
 
-# route to upload images
+# route to upload images option 1
 @app.route('/upload_images', methods=['GET', 'POST'])
 def upload_image():
-    message = ""
-    form = BakeryOwnerForm()
     if request.method == "POST":
         if request.files:
             image = request.files["image"]
             print(image)
 
-            if image.filename == "":
-                print("Please name your image file")
-                return redirect(request.url)
+        if image.filename == "":
+            print("Please name your image file")
+            return redirect(request.url)
 
-     #       if not allowed_image(image.filename):
-      #          print("That image extension is not allowed")
-      #          return redirect(request.url)
-            else:
-                filename = secure_filename(image.filename)
-                image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
-                print("image has been saved!")
-                return redirect(request.url)
+        #       if not allowed_image(image.filename):
+        #          print("That image extension is not allowed")
+        #          return redirect(request.url)
+        else:
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+            print("image has been saved!")
+            return redirect(request.url)
+
     return render_template('upload_images.html')
 
 
