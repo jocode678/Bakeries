@@ -136,9 +136,10 @@ def allowed_image(filename):
     #   return False
 
 
-# route to upload files
+# route to upload images
 @app.route('/upload_images', methods=['GET', 'POST'])
 def upload_image():
+    message = ""
     form = BakeryOwnerForm()
     if request.method == "POST":
         if request.files:
@@ -158,6 +159,12 @@ def upload_image():
                 print("image has been saved!")
                 return redirect(request.url)
     return render_template('upload_images.html')
+
+
+@app.route('/uploaded', methods=["POST"])
+def uploaded():
+    title = "Your image has been uploaded!"
+    return render_template("uploaded.html", title=title)
 
 
 @app.route('/add_review', methods=['GET', 'POST'])
@@ -186,31 +193,6 @@ def add_review():
     return render_template('add_review.html', form=form, message=error)
 
 
-# @app.route('/new_customer_member', methods=['GET', 'POST'])
-# def add_new_customer_member():
-#     error = ""
-#     form = CustomerSignUpForm()
-#
-#     if request.method == 'POST':
-#         form = CustomerSignUpForm(request.form)
-#         print(form.username.data)
-#         username = form.username.data
-#         user_password = form.user_password.data
-#         first_name = form.first_name.data
-#         last_name = form.last_name.data
-#         email = form.email.data
-#         postcode = form.postcode.data
-#
-#         if len(username) == 0 or len(user_password) == 0 or len(first_name) == 0 or len(last_name) == 0 or len(
-#                     email) == 0 or len(postcode) == 0:
-#             error = "Please supply all information"
-#         else:
-#             customer_member = CustomerMember(username=username, user_password=user_password, first_name=first_name, last_name=last_name, email=email, postcode=postcode)
-#             service.add_new_customer(customer_member)
-#             return render_template('aboutus.html', customer_member=customer_member, message=error)
-#
-#         return render_template('new_customer_form.html', form=form, message=error)
-
 
 # search- NOT WORKING!
 
@@ -236,9 +218,9 @@ def add_review():
 #     col_name = request.args.get(f'columns[{col_index}][data]')
 #     if col_name not in ['name']:
 #         col_name = 'name'
-#     decending = request.args.get(f'order[{i}][dir]') == 'desc'
+#     descending = request.args.get(f'order[{i}][dir]') == 'desc'
 #     col = getattr(Bakeries, col_name)
-#     if decending:
+#     if descending:
 #         col = col.desc()
 #     order.append(col)
 #     i += 1
