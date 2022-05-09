@@ -81,19 +81,17 @@
     <section class="individual-bakery-container">
       <div class="bakery-text">
         <div>
-          Image of Bakery {% for bakery in bakeries %}
           <img
-            class="image"
-            src="{{url_for('static', filename='image_file')}}"
-            alt="image of bakery"
-            style="width: 100px"
+            class="image bakery-image"
+            src="../static/{{image_file}}"
+            alt="Image of bakery is not available"
           />
-          {% endfor %}
+          <br>
         </div>
         <h1>{{bakery.shop_name}}</h1>
 
         <br />
-        <p>Opening times:{{bakery.opening_times}}</p>
+        <p>Opening times: {{bakery.opening_times}}</p>
         <p>
           Located at: {{address.house_number}} {{address.street}},
           {{address.town}}, <span id="postcode">{{address.postcode}}</span>
@@ -192,6 +190,7 @@
             {% endfor %}
           </table>
           {% endif %}
+          <br>
       </div>
     </section>
     <!--./Individual Bakery Section Ends-->

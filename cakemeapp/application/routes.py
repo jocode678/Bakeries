@@ -55,7 +55,7 @@ def show_bakery(bakery_id):
     ##filename = bakery.shop_name
     ##image_file = request.files["image"]
     ##image_file.save(os.path.join(app.config["IMAGE_RETRIEVAL"], filename))
-    path = bakery.image
+    path = bakery.image.decode('UTF-8')
     print(path)
     if not bakery:
         error = "There is no bakery with ID: " + str(bakery_id)

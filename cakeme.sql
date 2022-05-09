@@ -39,7 +39,7 @@ opening_times VARCHAR(100),
 phone VARCHAR(15),
 website VARCHAR(50),
 social_media VARCHAR(50),
-image LONGBLOB,
+image longblob,
 gluten VARCHAR(5),
 dairy_lactose VARCHAR(5),
 vegetarian VARCHAR(5),
@@ -53,16 +53,16 @@ halal VARCHAR(5),
 FOREIGN KEY (address_ref) REFERENCES address(id));
 
 INSERT INTO bakeries (image, shop_name, address_ref, opening_times, website, gluten, dairy_lactose, vegetarian, vegan, peanut, soy, eggs, fish_shell, kosher, halal) VALUES
-("/images/bakeries/maisonbertaux.jpg", "Maison Bertaux", 1, "Mon-Sun: 9:30am-6pm", "http://www.maisonbertaux.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/bageriet.jpg", "Bageriet", 2, "Sun/Mon: closed, Tue-Fri: 10am-5:30pm, Sat: 10am-6pm", "https://www.bageriet.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/cutterandsquidge.PNG", "Cutter & Squidge", 3, "Mon-Sun: 11am-7pm", "https://cutterandsquidge.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/auxpainsdepapy.PNG", "Aux Pains de Papy", 4, "Mon-Fri: 7am-4pm, Sat: 8am-12pm, Sun: closed", "https://www.auxpainsdepapy.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/crumbsanddoilies.jpg", "Crumbs & Doilies", 5, "Mon-Sat: 11am-7pm, Sun: 12-6pm", "https://www.crumbsanddoilies.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/mielbakery.jpg", "Miel Bakery", 6, "Mon-Sun: 8am-6pm", "http://oldpostofficebakery.co.uk/,", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/theoldpostofficebakery.jpg", "The Old Post Office Bakery", 7, "Mon-Sat: 7am-4pm, Sun: 7am-2pm", "http://oldpostofficebakery.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/e5bakehouse.jpg", "E5 Bakehouse", 8, "Mon-Fri: 7:30am-4:30pm, Sat/Sun: 8am-5pm", "https://e5bakehouse.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/fabriquebakeryhoxton.jpg", "Fabrique Bakery Hoxton", 9, "Mon-Fri: 8am-5pm, Sat/Sun: 9am-6pm", "https://fabrique.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
-("/images/bakeries/granierbakerycafe.jpg", "Granier Bakery Cafe", 10, "Mon-Sun: 6am-9pm", "https://pansgranier.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No");
+("images/bakeries/maisonbertaux.jpg", "Maison Bertaux", 1, "Mon-Sun: 9:30am-6pm", "http://www.maisonbertaux.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\bageriet.jpg", "Bageriet", 2, "Sun/Mon: closed, Tue-Fri: 10am-5:30pm, Sat: 10am-6pm", "https://www.bageriet.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\cutterandsquidge.PNG", "Cutter & Squidge", 3, "Mon-Sun: 11am-7pm", "https://cutterandsquidge.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\auxpainsdepapy.PNG", "Aux Pains de Papy", 4, "Mon-Fri: 7am-4pm, Sat: 8am-12pm, Sun: closed", "https://www.auxpainsdepapy.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\crumbsanddoilies.jpg", "Crumbs & Doilies", 5, "Mon-Sat: 11am-7pm, Sun: 12-6pm", "https://www.crumbsanddoilies.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\mielbakery.jpg", "Miel Bakery", 6, "Mon-Sun: 8am-6pm", "http://oldpostofficebakery.co.uk/,", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("images/bakeries/theoldpostofficebakery.jpg", "The Old Post Office Bakery", 7, "Mon-Sat: 7am-4pm, Sun: 7am-2pm", "http://oldpostofficebakery.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\e5bakehouse.jpg", "E5 Bakehouse", 8, "Mon-Fri: 7:30am-4:30pm, Sat/Sun: 8am-5pm", "https://e5bakehouse.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\fabriquebakeryhoxton.jpg", "Fabrique Bakery Hoxton", 9, "Mon-Fri: 8am-5pm, Sat/Sun: 9am-6pm", "https://fabrique.co.uk/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No"),
+("\Bakeries\cakemeapp\application\static\images\bakeries\granierbakerycafe.jpg", "Granier Bakery Cafe", 10, "Mon-Sun: 6am-9pm", "https://pansgranier.com/", "Yes", "Yes", "No", "Yes", "Yes", "No", "Yes", "Yes", "No", "No");
 
 CREATE TABLE menu_items(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -125,8 +125,8 @@ FOREIGN KEY (bakery_ref) REFERENCES bakeries(id));
 INSERT INTO reviews (review, stars, bakery_ref) VALUES
 ("Quite tasty pastries!", 5, 7);
 
-CREATE USER "admin1"@"localhost" IDENTIFIED BY "password1";
-GRANT ALL ON cakeme.* TO "admin1"@"localhost";
+-- CREATE USER "admin2"@"localhost" IDENTIFIED BY "password2";
+-- GRANT ALL ON cakeme.* TO "admin2"@"localhost";
 
 -- CREATE USER "baker1"@"localhost" IDENTIFIED BY "password1";
 -- GRANT SELECT, INSERT, UPDATE ON cakeme.bakeries TO "baker1"@"localhost";
@@ -141,3 +141,5 @@ GRANT ALL ON cakeme.* TO "admin1"@"localhost";
 -- RETURN SELECT 1 AS AccessRight
 -- 	WHERE @id = USER_NAME() OR USER_NAME() = "baker1"
 -- ;
+
+select * from bakeries;

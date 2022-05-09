@@ -136,8 +136,8 @@
           </tr>
           {% for bakery in bakeries %}
           <tr>
-            <td>
-              <p>{{bakery.shop_name}}</p>
+            <td><a href="/bakery/{{bakery.id}}" style="color:rgb(55, 81, 95); font-size: 24px;">
+              {{bakery.shop_name}}</a>
             </td>
             <td>
               <p>{{bakery.opening_times}}</p>

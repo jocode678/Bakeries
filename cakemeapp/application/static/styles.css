@@ -1,4 +1,4 @@
-/* Background and Main Text Styles */
+/* Generic elements */
 body,
 html {
   width: 100%;
@@ -7,6 +7,58 @@ html {
   margin: 0, auto;
   padding: 0;
 }
+
+h1,
+h2 {
+  color: white;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-weight: 600;
+}
+
+h3 {
+  color: rgb(55, 81, 95);
+  text-align: center;
+  font-weight: bold;
+}
+
+form {
+  width: 80%;
+}
+
+p {
+  font-size: 24px;
+  margin: 0px 0px 0px 0px;
+  line-height: normal;
+}
+
+tr {
+  border: 1px solid;
+  text-align: center;
+}
+th {
+  border-bottom: 3px solid;
+  border-color: rgb(55, 81, 95);
+}
+th,
+td {
+  border-right: 2px solid;
+  border-color: rgb(55, 81, 95);
+}
+
+input[type="text"] {
+  width: 30%;
+  -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+}
+
+input[type="text"]:focus {
+  width: 70%;
+}
+/* generic styles end */
 
 .bg {
   background: rgba(211, 165, 136);
@@ -18,6 +70,7 @@ html {
   background-size: cover;
 }
 
+/*navbar styling */
 .navbar {
   padding: 25px;
 }
@@ -28,6 +81,17 @@ html {
   border-radius: 20px;
 
   background: rgba(211, 165, 136, 0.8);
+}
+
+.menu-logo {
+  max-width: 100%;
+  height: auto;
+
+  object-fit: scale-down;
+  width: 120px;
+}
+.h2-black {
+  color: rgb(55, 81, 95);
 }
 
 /* Navbar effects */
@@ -99,38 +163,6 @@ html {
 }
 
 /* Navbar effects end */
-
-h1,
-h2 {
-  color: white;
-}
-
-h1,
-h2 {
-  text-align: center;
-  font-weight: 600;
-}
-
-h3 {
-  color: rgb(55, 81, 95);
-  text-align: center;
-  font-weight: bold;
-}
-
-form {
-  width: 80%;
-}
-
-.menu-logo {
-  max-width: 100%;
-  height: auto;
-
-  object-fit: scale-down;
-  width: 120px;
-}
-.h2-black {
-  color: rgb(55, 81, 95);
-}
 
 /* Footer Styles*/
 
@@ -222,6 +254,15 @@ form {
   border-color: rgb(55, 81, 95);
   text-align: center;
 }
+
+.bakery-image {
+  max-width: 350px;
+  border: 4px solid;
+  border-radius: 5px;
+  border-color: rgb(55, 81, 95);
+  margin: 10px;
+}
+
 .about-us-image,
 .contact-us-front-image {
   background-image: url(images/AboutUsImage.jpeg);
@@ -254,7 +295,7 @@ form {
 .about-us-para-3,
 .about-us-question,
 .contact-us-para-1,
-c.ontact-us-para-2,
+.contact-us-para-2,
 .contact-us-para-3 {
   padding: 5px;
   margin: 5px;
@@ -275,22 +316,6 @@ c.ontact-us-para-2,
   border-color: rgb(55, 81, 95);
   border-radius: 50%;
 }
-
-p {
-  font-size: 24px;
-  margin: 0px 0px 0px 0px;
-  line-height: normal;
-}
-
-/* General Styles End */
-
-/* footer {
-  font-size: 1.2em;
-  text-align: center;
-  color: gray;
-} */
-
-/* Search Bar Styles */
 
 .error_message {
   font-size: 1.3em;
@@ -339,57 +364,9 @@ h2 {
   width: 100%;
 }
 
-tr {
-  border: 1px solid;
-  text-align: center;
-}
-th {
-  border-bottom: 3px solid;
-  border-color: rgb(55, 81, 95);
-}
-th,
-td {
-  border-right: 2px solid;
-  border-color: rgb(55, 81, 95);
-}
-
-#map {
-  height: 500px;
-  width: 90%;
-  margin: 10%;
-  padding: 5px;
-  border-radius: 20px;
-  border: 15px solid;
-  border-color: rgba(211, 165, 136, 0.9);
-}
-#searchbar {
-  justify-content: center;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-input[type="text"] {
-  width: 30%;
-  -webkit-transition: width 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out;
-}
-
-input[type="text"]:focus {
-  width: 70%;
-}
-
-#list {
-  font-size: 1.5em;
-  margin-left: 90px;
-}
-
 .bakeries {
   display: list-item;
 }
-
-/* Search Bar Styles End */
-
-/* Home Styles */
 
 .home-tagline-text,
 .about-us-info,
@@ -416,8 +393,6 @@ input[type="text"]:focus {
   text-align: center;
 }
 
-/* Contact Us Styles */
-
 .social-icon-1,
 .social-icon-2 {
   vertical-align: top;
@@ -437,6 +412,26 @@ input[type="text"]:focus {
 .social-caption-2 {
   display: block;
   padding: 4px;
+}
+
+#map {
+  height: 500px;
+  width: 90%;
+  margin: 10%;
+  padding: 5px;
+  border-radius: 20px;
+  border: 15px solid;
+  border-color: rgba(211, 165, 136, 0.9);
+}
+#searchbar {
+  justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#list {
+  font-size: 1.5em;
+  margin-left: 90px;
 }
 
 /* .overlay {
