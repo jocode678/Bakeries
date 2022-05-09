@@ -121,7 +121,7 @@ def add_new_bakery():
 
 
 # app config
-app.config["IMAGE_UPLOADS"] = "/Users/getintotech/Documents/Bakeries/cakemeapp/application/static/images/bakeries"
+app.config["IMAGE_UPLOADS"] = "static/images/bakeries"
 # app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 
 
